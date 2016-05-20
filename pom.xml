@@ -159,6 +159,7 @@
   </dependencyManagement>
 
   <modules>
+    <module>workspace-iceland</module>
   </modules>
 
 </project>

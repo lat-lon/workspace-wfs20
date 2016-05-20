@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>workspace-iceland</artifactId>
+  <packaging>pom</packaging>
+  <description>Iceland Workspace</description>
+
+  <parent>
+    <groupId>de.latlon</groupId>
+    <artifactId>workspace-wfs20</artifactId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>int</id>
+            <goals>
+              <goal>attached</goal>
+            </goals>
+            <configuration>
+              <filters>
+                <filter>${project.basedir}/src/main/filter/int.properties</filter>
+              </filters>
+              <ignoreDirFormatExtensions>true</ignoreDirFormatExtensions>
+              <descriptors>
+                <descriptor>${project.basedir}/src/main/assembly/assembly-int.xml</descriptor>
+              </descriptors>
+              <appendAssemblyId>true</appendAssemblyId>
+            </configuration>
+            <phase>package</phase>
+          </execution>
+          <execution>
+            <id>uat</id>
+            <goals>
+              <goal>attached</goal>
+            </goals>
+            <configuration>
+              <filters>
+                <filter>${project.basedir}/src/main/filter/uat.properties</filter>
+              </filters>
+              <ignoreDirFormatExtensions>true</ignoreDirFormatExtensions>
+              <descriptors>
+                <descriptor>${project.basedir}/src/main/assembly/assembly-uat.xml</descriptor>
+              </descriptors>
+              <appendAssemblyId>true</appendAssemblyId>
+            </configuration>
+            <phase>package</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
