@@ -39,8 +39,8 @@ F_TERM_DT varchar
 );
 
 -- load data:
--- geonames=# \copy import from '/tmp/ic.txt' with delimiter E'\t' csv header;
-\copy import from '/tmp/ic.txt' with delimiter E'\t' csv header;
+-- geonames=# \copy import from 'ic.txt' with delimiter E'\t' csv header;
+\copy import from 'ic.txt' with delimiter E'\t' csv header;
 alter table import add column geometry geometry(POINT, 4326);
 update import set geometry = ST_SetSRID(ST_MakePoint (long,lat), 4326);
 -- here, we could create a subset from the imported GNS data
