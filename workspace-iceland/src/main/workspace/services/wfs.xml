@@ -22,6 +22,8 @@
   </SupportedRequests>
 
   <FeatureStoreId>gns_iceland</FeatureStoreId>
+  <FeatureStoreId>osm_administrative</FeatureStoreId>
+  <FeatureStoreId>osm_protected_area</FeatureStoreId>
 
   <EnableTransactions idGen="UseExisting">false</EnableTransactions>
   <EnableResponseBuffering>false</EnableResponseBuffering>
