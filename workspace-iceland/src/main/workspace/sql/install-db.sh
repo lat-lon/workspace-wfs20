@@ -42,7 +42,7 @@ function postprocessingOSM {
 dropDB
 createDB
 # GN
-#dropAndImportGN
+dropAndImportGN
 # OSM
 dropOSM
 importOSM
