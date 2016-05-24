@@ -26,7 +26,7 @@ function dropOSM {
 }
 
 function importOSM {
-  osm2pgsql --keep-coastlines -s -d iceland iceland-latest.osm.pbf
+  osm2pgsql --keep-coastlines -s -d iceland ../data/iceland-latest.osm.pbf
   psql -d iceland -f osm-import_to_epsg-4326.sql
 }
 
