@@ -17,21 +17,22 @@ function createDB {
   psql -d iceland -c "CREATE EXTENSION postgis;"
 }
 
-function dropAndCreateSchemaAndImportDataGN {
+function dropAndImportGN {
   psql -d iceland -f gns_create_postgis_table.sql
 }
 
-function dropSchemaOSM {
+function dropOSM {
   psql -d iceland -f osm_drop_tables.sql
 }
 
-function createSchemaOSM {
-  psql -d iceland -f osm_create_administrative_table.sql
-  psql -d iceland -f osm_create_protected_area_table.sql
+function importOSM {
+  osm2pgsql --keep-coastlines -s -d iceland iceland-latest.osm.pbf
+  psql -d iceland -f osm-import_to_epsg-4326.sql
 }
 
-function importDataOSM {
-  psql -d iceland -f osm-import_to_epsg-4326.sql
+function postprocessingOSM {
+  psql -d iceland -f osm_create_administrative_table.sql
+  psql -d iceland -f osm_create_protected_area_table.sql
 }
 
 ####################
@@ -41,8 +42,8 @@ function importDataOSM {
 dropDB
 createDB
 # GN
-dropAndCreateSchemaAndImportDataGN
+#dropAndImportGN
 # OSM
-#dropSchemaOSM
-#createSchemaOSM
-#importDataOSM
+dropOSM
+importOSM
+postprocessingOSM
