@@ -17,12 +17,8 @@ function createDB {
   psql -d iceland -c "CREATE EXTENSION postgis;"
 }
 
-function dropAndImportGN {
+function importGN {
   psql -d iceland -f gns_create_postgis_table.sql
-}
-
-function dropOSM {
-  psql -d iceland -f osm_drop_tables.sql
 }
 
 function importOSM {
@@ -33,6 +29,7 @@ function importOSM {
 function postprocessingOSM {
   psql -d iceland -f osm_create_administrative_table.sql
   psql -d iceland -f osm_create_protected_area_table.sql
+  psql -d iceland -f osm_drop_tables.sql
 }
 
 ####################
@@ -42,8 +39,7 @@ function postprocessingOSM {
 dropDB
 createDB
 # GN
-dropAndImportGN
+importGN
 # OSM
-dropOSM
 importOSM
 postprocessingOSM
