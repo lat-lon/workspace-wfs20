@@ -12,4 +12,10 @@
 
   <QueryCRS>urn:ogc:def:crs:EPSG::4326</QueryCRS>
 
+  <GMLFormat gmlVersion="GML_32">
+    <MimeType>application/gml+xml; version=3.2</MimeType>
+    <MimeType>text/xml; subtype=gml/3.2.1</MimeType>
+    <MimeType>text/xml; subtype="gml/3.2.1"</MimeType>
+  </GMLFormat>
+
 </deegreeWFS>
