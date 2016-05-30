@@ -1,5 +1,6 @@
-<SQLFeatureStore configVersion="3.4.0" xmlns="http://www.deegree.org/datasource/feature/sql" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.deegree.org/datasource/feature/sql
+<SQLFeatureStore configVersion="3.4.0" xmlns="http://www.deegree.org/datasource/feature/sql"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.deegree.org/datasource/feature/sql
   http://schemas.deegree.org/datasource/feature/sql/3.4.0/sql.xsd">
   <JDBCConnId>postgis_local</JDBCConnId>
 
@@ -9,15 +10,15 @@
       <Column name="osm_id" type="integer" />
       <UUIDGenerator />
     </FIDMapping>
- <Primitive path="osm_id" mapping="osm_id"/>
- <Primitive path="boundary" mapping="boundary"/>
- <Primitive path="leisure" mapping="leisure"/>
- <Primitive path="name" mapping="name"/>
- <Primitive path="tourism" mapping="tourism"/>
- <Primitive path="way_area" mapping="way_area"/>
+    <Primitive path="osm_id" mapping="osm_id" />
+    <Primitive path="boundary" mapping="boundary" />
+    <Primitive path="leisure" mapping="leisure" />
+    <Primitive path="name" mapping="name" />
+    <Primitive path="tourism" mapping="tourism" />
+    <Primitive path="way_area" mapping="way_area" />
     <Geometry path="geometry" mapping="geometry">
       <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
-    </Geometry>    
-  </FeatureTypeMapping>    
+    </Geometry>
+  </FeatureTypeMapping>
 
 </SQLFeatureStore>

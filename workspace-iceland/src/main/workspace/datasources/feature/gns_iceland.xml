@@ -1,5 +1,6 @@
-<SQLFeatureStore configVersion="3.4.0" xmlns="http://www.deegree.org/datasource/feature/sql" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.deegree.org/datasource/feature/sql
+<SQLFeatureStore configVersion="3.4.0" xmlns="http://www.deegree.org/datasource/feature/sql"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.deegree.org/datasource/feature/sql
   http://schemas.deegree.org/datasource/feature/sql/3.4.0/sql.xsd">
   <JDBCConnId>postgis_local</JDBCConnId>
 
@@ -9,45 +10,45 @@
       <Column name="ufi" type="integer" />
       <UUIDGenerator />
     </FIDMapping>
- <Primitive path="rc" mapping="rc"/>
- <Primitive path="ufi" mapping="ufi"/>
- <Primitive path="uni" mapping="uni"/>
- <Primitive path="lat" mapping="lat"/>
- <Primitive path="long" mapping="long"/>
- <Primitive path="dms_lat" mapping="dms_lat"/>
- <Primitive path="dms_long" mapping="dms_long"/>
- <Primitive path="mgrs" mapping="mgrs"/>
- <Primitive path="jog" mapping="jog"/>
- <Primitive path="fc" mapping="fc"/>
- <Primitive path="dsg" mapping="dsg"/>
- <Primitive path="pc" mapping="pc"/>
- <Primitive path="cc1" mapping="cc1"/>
- <Primitive path="adm1" mapping="adm1"/>
- <Primitive path="pop" mapping="pop"/>
- <Primitive path="elev" mapping="elev"/>
- <Primitive path="cc2" mapping="cc2"/>
- <Primitive path="nt" mapping="nt"/>
- <Primitive path="lc" mapping="lc"/>
- <Primitive path="short_form" mapping="short_form"/>
- <Primitive path="generic" mapping="generic"/>
- <Primitive path="sort_name_ro" mapping="sort_name_ro"/>
- <Primitive path="full_name_ro" mapping="full_name_ro"/>
- <Primitive path="full_name_nd_ro" mapping="full_name_nd_ro"/>
- <Primitive path="sort_name_rg" mapping="sort_name_rg"/>
- <Primitive path="full_name_rg" mapping="full_name_rg"/>
- <Primitive path="full_name_nd_rg" mapping="full_name_nd_rg"/>
- <Primitive path="note" mapping="note"/>
- <Primitive path="modify_date" mapping="modify_date"/>
- <Primitive path="display" mapping="display"/>
- <Primitive path="name_rank" mapping="name_rank"/>
- <Primitive path="name_link" mapping="name_link"/>
- <Primitive path="transl_cd" mapping="transl_cd"/>
- <Primitive path="nm_modify_date" mapping="nm_modify_date"/>
- <Primitive path="f_efctv_dt" mapping="f_efctv_dt"/>
- <Primitive path="f_term_dt" mapping="f_term_dt"/>
+    <Primitive path="rc" mapping="rc" />
+    <Primitive path="ufi" mapping="ufi" />
+    <Primitive path="uni" mapping="uni" />
+    <Primitive path="lat" mapping="lat" />
+    <Primitive path="long" mapping="long" />
+    <Primitive path="dms_lat" mapping="dms_lat" />
+    <Primitive path="dms_long" mapping="dms_long" />
+    <Primitive path="mgrs" mapping="mgrs" />
+    <Primitive path="jog" mapping="jog" />
+    <Primitive path="fc" mapping="fc" />
+    <Primitive path="dsg" mapping="dsg" />
+    <Primitive path="pc" mapping="pc" />
+    <Primitive path="cc1" mapping="cc1" />
+    <Primitive path="adm1" mapping="adm1" />
+    <Primitive path="pop" mapping="pop" />
+    <Primitive path="elev" mapping="elev" />
+    <Primitive path="cc2" mapping="cc2" />
+    <Primitive path="nt" mapping="nt" />
+    <Primitive path="lc" mapping="lc" />
+    <Primitive path="short_form" mapping="short_form" />
+    <Primitive path="generic" mapping="generic" />
+    <Primitive path="sort_name_ro" mapping="sort_name_ro" />
+    <Primitive path="full_name_ro" mapping="full_name_ro" />
+    <Primitive path="full_name_nd_ro" mapping="full_name_nd_ro" />
+    <Primitive path="sort_name_rg" mapping="sort_name_rg" />
+    <Primitive path="full_name_rg" mapping="full_name_rg" />
+    <Primitive path="full_name_nd_rg" mapping="full_name_nd_rg" />
+    <Primitive path="note" mapping="note" />
+    <Primitive path="modify_date" mapping="modify_date" />
+    <Primitive path="display" mapping="display" />
+    <Primitive path="name_rank" mapping="name_rank" />
+    <Primitive path="name_link" mapping="name_link" />
+    <Primitive path="transl_cd" mapping="transl_cd" />
+    <Primitive path="nm_modify_date" mapping="nm_modify_date" />
+    <Primitive path="f_efctv_dt" mapping="f_efctv_dt" />
+    <Primitive path="f_term_dt" mapping="f_term_dt" />
     <Geometry path="geometry" mapping="geometry">
       <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
-    </Geometry>    
-  </FeatureTypeMapping>    
+    </Geometry>
+  </FeatureTypeMapping>
 
 </SQLFeatureStore>

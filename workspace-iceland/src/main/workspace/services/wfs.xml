@@ -1,24 +1,19 @@
 <deegreeWFS configVersion="3.4.0"
-  xmlns="http://www.deegree.org/services/wfs"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.deegree.org/services/wfs
+            xmlns="http://www.deegree.org/services/wfs"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.deegree.org/services/wfs
   http://schemas.deegree.org/services/wfs/3.4.0/wfs_configuration.xsd">
-  
+
   <SupportedVersions>
     <Version>2.0.0</Version>
   </SupportedVersions>
 
-
   <FeatureStoreId>gns_iceland</FeatureStoreId>
- <!-- <FeatureStoreId>osm_administrative</FeatureStoreId>
-  <FeatureStoreId>osm_protected_area</FeatureStoreId>-->
+  <!-- <FeatureStoreId>osm_administrative</FeatureStoreId>
+   <FeatureStoreId>osm_protected_area</FeatureStoreId>-->
 
   <EnableTransactions idGen="UseExisting">true</EnableTransactions>
-  
 
   <QueryCRS>urn:ogc:def:crs:EPSG::4326</QueryCRS>
-  
-
 
 </deegreeWFS>
-
