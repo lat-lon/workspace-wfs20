@@ -3,6 +3,7 @@
                  xsi:schemaLocation="http://www.deegree.org/datasource/feature/sql
   http://schemas.deegree.org/datasource/feature/sql/3.4.0/sql.xsd">
   <JDBCConnId>postgis_local</JDBCConnId>
+<!--  <GMLSchema>../../appschemas/gml/3.2.1.2/gml.xsd</GMLSchema>-->
 
   <FeatureTypeMapping table="gns_iceland">
     <FIDMapping prefix="gns_iceland_">
