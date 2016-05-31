@@ -3,6 +3,7 @@
 #
 # Execute script as 'postgresql' user.
 # Following tools have to be installed:
+# * dropdb
 # * createdb
 # * psql
 # * osm2pgsql
@@ -13,6 +14,7 @@ function dropDB {
 }
 
 function createDB {
+  psql -c "CREATE USER deegree WITH PASSWORD 'deegree'"
   createdb iceland -O deegree
   psql -d iceland -c "CREATE EXTENSION postgis;"
 }
