@@ -8,7 +8,7 @@
     <Version>2.0.0</Version>
   </SupportedVersions>
 
-  <EnableTransactions idGen="UseExisting">true</EnableTransactions>
+  <EnableTransactions>true</EnableTransactions>
 
   <QueryCRS>urn:ogc:def:crs:EPSG::4326</QueryCRS>
 
