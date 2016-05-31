@@ -5,8 +5,7 @@
   http://schemas.deegree.org/datasource/feature/sql/3.4.0/sql.xsd">
   <JDBCConnId>postgis_local</JDBCConnId>
   <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
-  <GMLSchema>../../appschemas/iceland/iceland.xsd</GMLSchema>
-  <GMLSchema>../../appschemas/gml/3.2.1.2/gml.xsd</GMLSchema>
+  <GMLSchema>../../appschemas/iceland.xsd</GMLSchema>
 
   <FeatureTypeMapping table="gns_iceland" name="app:gns_iceland">
     <FIDMapping prefix="gns_iceland_">
