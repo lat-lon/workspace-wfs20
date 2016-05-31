@@ -13,6 +13,9 @@
       <Column name="ufi" type="integer" />
       <UUIDGenerator />
     </FIDMapping>
+    <Primitive path="gml:description" mapping="gml_description" />
+    <Primitive path="gml:identifier" mapping="gml_identifier" />
+    <Primitive path="gml:name" mapping="gml_name" />
     <Primitive path="app:rc" mapping="rc" />
     <Primitive path="app:ufi" mapping="ufi" />
     <Primitive path="app:uni" mapping="uni" />
@@ -59,6 +62,9 @@
       <Column name="osm_id" type="integer" />
       <UUIDGenerator />
     </FIDMapping>
+    <Primitive path="gml:description" mapping="gml_description" />
+    <Primitive path="gml:identifier" mapping="gml_identifier" />
+    <Primitive path="gml:name" mapping="gml_name" />
     <Primitive path="app:osm_id" mapping="osm_id" />
     <Primitive path="app:admin_level" mapping="admin_level" />
     <Primitive path="app:name" mapping="name" />
@@ -74,6 +80,9 @@
       <Column name="osm_id" type="integer" />
       <UUIDGenerator />
     </FIDMapping>
+    <Primitive path="gml:description" mapping="gml_description" />
+    <Primitive path="gml:identifier" mapping="gml_identifier" />
+    <Primitive path="gml:name" mapping="gml_name" />
     <Primitive path="app:osm_id" mapping="osm_id" />
     <Primitive path="app:boundary" mapping="boundary" />
     <Primitive path="app:leisure" mapping="leisure" />
