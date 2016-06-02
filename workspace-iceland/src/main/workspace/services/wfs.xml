@@ -16,9 +16,9 @@
     <MimeType>application/gml+xml; version=3.2</MimeType>
     <MimeType>text/xml; subtype=gml/3.2.1</MimeType>
     <MimeType>text/xml; subtype="gml/3.2.1"</MimeType>
-  </GMLFormat>
     <GetFeatureResponse>
       <DisableStreaming>true</DisableStreaming>
     </GetFeatureResponse>
+  </GMLFormat>
 
 </deegreeWFS>
