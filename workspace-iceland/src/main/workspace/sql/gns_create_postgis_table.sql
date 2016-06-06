@@ -1,4 +1,4 @@
-drop table import;
+DROP TABLE IF EXISTS import;
 CREATE TABLE import (
 RC numeric,
 UFI numeric,
@@ -44,7 +44,11 @@ F_TERM_DT varchar
 alter table import add column geometry geometry(POINT, 4326);
 update import set geometry = ST_SetSRID(ST_MakePoint (long,lat), 4326);
 -- here, we could create a subset from the imported GNS data
-drop table gns_iceland;
+DROP TABLE IF EXISTS gns_iceland;
 create table gns_iceland as select * from import ;
 grant all on gns_iceland to deegree ;
+
+create sequence gns_iceland_seq;
+alter table gns_iceland add column id integer default nextval('gns_iceland_seq');
+
 drop table import;
