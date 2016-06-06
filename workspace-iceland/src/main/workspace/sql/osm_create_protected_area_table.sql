@@ -3,3 +3,6 @@ grant all on osm_protected_area to deegree;
 
 create sequence osm_protected_area_seq;
 alter table osm_protected_area add column id integer default nextval('osm_protected_area_seq');
+ALTER TABLE osm_protected_area ADD COLUMN gml_description varchar;
+ALTER TABLE osm_protected_area ADD COLUMN gml_identifier varchar;
+ALTER TABLE osm_protected_area ADD COLUMN gml_name varchar;
