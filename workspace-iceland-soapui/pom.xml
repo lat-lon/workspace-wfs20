@@ -12,26 +12,31 @@
     <version>0.1-SNAPSHOT</version>
   </parent>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>com.smartbear.soapui</groupId>
-        <artifactId>soapui-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>test</phase>
-            <goals>
-              <goal>test</goal>
-            </goals>
-            <configuration>
-              <projectFile>src/test/resources/ogctestbed12-soapui-project.xml</projectFile>
-              <outputFolder>${project.build.directory}</outputFolder>
-              <junitReport>true</junitReport>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+  <profiles>
+    <profile>
+      <id>soapui</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.smartbear.soapui</groupId>
+            <artifactId>soapui-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>test</phase>
+                <goals>
+                  <goal>test</goal>
+                </goals>
+                <configuration>
+                  <projectFile>src/test/resources/ogctestbed12-soapui-project.xml</projectFile>
+                  <outputFolder>${project.build.directory}</outputFolder>
+                  <junitReport>true</junitReport>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>

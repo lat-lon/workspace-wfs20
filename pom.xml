@@ -169,6 +169,7 @@
 
   <modules>
     <module>workspace-iceland</module>
+    <module>workspace-iceland-soapui</module>
   </modules>
 
 </project>
