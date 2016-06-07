@@ -9,8 +9,8 @@
 
   <FeatureTypeMapping table="gns_iceland" name="app:gns_iceland">
     <FIDMapping prefix="gns_iceland_">
-      <Column name="ufi" type="integer" />
-      <UUIDGenerator />
+      <Column name="id" type="integer" />
+      <SequenceIDGenerator sequence="gns_iceland_seq"/>
     </FIDMapping>
     <Primitive path="gml:description" mapping="gml_description" />
     <Primitive path="gml:identifier" mapping="gml_identifier" />
@@ -58,8 +58,8 @@
 
   <FeatureTypeMapping table="osm_administrative" name="app:osm_administrative">
     <FIDMapping prefix="osm_administrative_">
-      <Column name="osm_id" type="integer" />
-      <UUIDGenerator />
+      <Column name="id" type="integer" />
+      <SequenceIDGenerator sequence="osm_administrative_seq"/>
     </FIDMapping>
     <Primitive path="gml:description" mapping="gml_description" />
     <Primitive path="gml:identifier" mapping="gml_identifier" />
@@ -76,8 +76,8 @@
 
   <FeatureTypeMapping table="osm_protected_area" name="app:osm_protected_area">
     <FIDMapping prefix="osm_protected_area_">
-      <Column name="osm_id" type="integer" />
-      <UUIDGenerator />
+      <Column name="id" type="integer" />
+      <SequenceIDGenerator sequence="osm_protected_area_seq"/>
     </FIDMapping>
     <Primitive path="gml:description" mapping="gml_description" />
     <Primitive path="gml:identifier" mapping="gml_identifier" />
