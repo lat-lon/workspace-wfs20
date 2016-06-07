@@ -26,6 +26,7 @@
             <configuration>
               <projectFile>src/test/resources/ogctestbed12-soapui-project.xml</projectFile>
               <outputFolder>${project.build.directory}</outputFolder>
+              <junitReport>true</junitReport>
             </configuration>
           </execution>
         </executions>
