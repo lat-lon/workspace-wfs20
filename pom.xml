@@ -65,6 +65,10 @@
         <enabled>true</enabled>
       </snapshots>
     </pluginRepository>
+    <pluginRepository>
+      <id>SmartBearPluginRepository</id>
+      <url>http://www.soapui.org/repository/maven2/</url>
+    </pluginRepository>
   </pluginRepositories>
 
   <prerequisites>
@@ -137,6 +141,11 @@
             <autoVersionSubmodules>true</autoVersionSubmodules>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>com.smartbear.soapui</groupId>
+          <artifactId>soapui-maven-plugin</artifactId>
+          <version>5.2.1</version>
+        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -160,6 +169,7 @@
 
   <modules>
     <module>workspace-iceland</module>
+    <module>workspace-iceland-soapui</module>
   </modules>
 
 </project>

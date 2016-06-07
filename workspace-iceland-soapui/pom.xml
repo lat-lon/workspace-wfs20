@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>workspace-iceland-soapui</artifactId>
+  <packaging>pom</packaging>
+  <description>Iceland Workspace SoapUI Project</description>
+
+  <parent>
+    <groupId>de.latlon</groupId>
+    <artifactId>workspace-wfs20</artifactId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+
+  <profiles>
+    <profile>
+      <id>soapui</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.smartbear.soapui</groupId>
+            <artifactId>soapui-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>test</phase>
+                <goals>
+                  <goal>test</goal>
+                </goals>
+                <configuration>
+                  <projectFile>src/test/resources/ogctestbed12-soapui-project.xml</projectFile>
+                  <outputFolder>${project.build.directory}</outputFolder>
+                  <junitReport>true</junitReport>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
