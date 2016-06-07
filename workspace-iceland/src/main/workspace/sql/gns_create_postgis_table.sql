@@ -49,6 +49,7 @@ create table gns_iceland as select * from import ;
 grant all on gns_iceland to deegree ;
 
 create sequence gns_iceland_seq;
+grant all on gns_iceland_seq to deegree ;
 alter table gns_iceland add column id integer default nextval('gns_iceland_seq');
 ALTER TABLE gns_iceland ADD COLUMN gml_description varchar;
 ALTER TABLE gns_iceland ADD COLUMN gml_identifier varchar;
