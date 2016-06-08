@@ -1,0 +1,96 @@
+<SQLFeatureStore configVersion="3.4.0" xmlns="http://www.deegree.org/datasource/feature/sql"
+                 xmlns:app="http://www.deegree.org/app"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.deegree.org/datasource/feature/sql
+  http://schemas.deegree.org/datasource/feature/sql/3.4.0/sql.xsd">
+  <JDBCConnId>postgis_local</JDBCConnId>
+  <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
+  <GMLSchema>../../appschemas/iceland.xsd</GMLSchema>
+
+  <FeatureTypeMapping table="gns_iceland" name="app:gns_iceland">
+    <FIDMapping prefix="gns_iceland_">
+      <Column name="id" type="integer" />
+      <SequenceIDGenerator sequence="gns_iceland_seq"/>
+    </FIDMapping>
+    <Primitive path="gml:description" mapping="gml_description" />
+    <Primitive path="gml:identifier" mapping="gml_identifier" />
+    <Primitive path="gml:name" mapping="gml_name" />
+    <Primitive path="app:rc" mapping="rc" />
+    <Primitive path="app:ufi" mapping="ufi" />
+    <Primitive path="app:uni" mapping="uni" />
+    <Primitive path="app:lat" mapping="lat" />
+    <Primitive path="app:long" mapping="long" />
+    <Primitive path="app:dms_lat" mapping="dms_lat" />
+    <Primitive path="app:dms_long" mapping="dms_long" />
+    <Primitive path="app:mgrs" mapping="mgrs" />
+    <Primitive path="app:jog" mapping="jog" />
+    <Primitive path="app:fc" mapping="fc" />
+    <Primitive path="app:dsg" mapping="dsg" />
+    <Primitive path="app:pc" mapping="pc" />
+    <Primitive path="app:cc1" mapping="cc1" />
+    <Primitive path="app:adm1" mapping="adm1" />
+    <Primitive path="app:pop" mapping="pop" />
+    <Primitive path="app:elev" mapping="elev" />
+    <Primitive path="app:cc2" mapping="cc2" />
+    <Primitive path="app:nt" mapping="nt" />
+    <Primitive path="app:lc" mapping="lc" />
+    <Primitive path="app:short_form" mapping="short_form" />
+    <Primitive path="app:generic" mapping="generic" />
+    <Primitive path="app:sort_name_ro" mapping="sort_name_ro" />
+    <Primitive path="app:full_name_ro" mapping="full_name_ro" />
+    <Primitive path="app:full_name_nd_ro" mapping="full_name_nd_ro" />
+    <Primitive path="app:sort_name_rg" mapping="sort_name_rg" />
+    <Primitive path="app:full_name_rg" mapping="full_name_rg" />
+    <Primitive path="app:full_name_nd_rg" mapping="full_name_nd_rg" />
+    <Primitive path="app:note" mapping="note" />
+    <Primitive path="app:modify_date" mapping="modify_date" />
+    <Primitive path="app:display" mapping="display" />
+    <Primitive path="app:name_rank" mapping="name_rank" />
+    <Primitive path="app:name_link" mapping="name_link" />
+    <Primitive path="app:transl_cd" mapping="transl_cd" />
+    <Primitive path="app:nm_modify_date" mapping="nm_modify_date" />
+    <Primitive path="app:f_efctv_dt" mapping="f_efctv_dt" />
+    <Primitive path="app:f_term_dt" mapping="f_term_dt" />
+    <Geometry path="app:geometry" mapping="geometry">
+      <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
+    </Geometry>
+  </FeatureTypeMapping>
+
+  <FeatureTypeMapping table="osm_administrative" name="app:osm_administrative">
+    <FIDMapping prefix="osm_administrative_">
+      <Column name="id" type="integer" />
+      <SequenceIDGenerator sequence="osm_administrative_seq"/>
+    </FIDMapping>
+    <Primitive path="gml:description" mapping="gml_description" />
+    <Primitive path="gml:identifier" mapping="gml_identifier" />
+    <Primitive path="gml:name" mapping="gml_name" />
+    <Primitive path="app:osm_id" mapping="osm_id" />
+    <Primitive path="app:admin_level" mapping="admin_level" />
+    <Primitive path="app:name" mapping="name" />
+    <Primitive path="app:place" mapping="place" />
+    <Primitive path="app:way_area" mapping="way_area" />
+    <Geometry path="app:geometry" mapping="geometry">
+      <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
+    </Geometry>
+  </FeatureTypeMapping>
+
+  <FeatureTypeMapping table="osm_protected_area" name="app:osm_protected_area">
+    <FIDMapping prefix="osm_protected_area_">
+      <Column name="id" type="integer" />
+      <SequenceIDGenerator sequence="osm_protected_area_seq"/>
+    </FIDMapping>
+    <Primitive path="gml:description" mapping="gml_description" />
+    <Primitive path="gml:identifier" mapping="gml_identifier" />
+    <Primitive path="gml:name" mapping="gml_name" />
+    <Primitive path="app:osm_id" mapping="osm_id" />
+    <Primitive path="app:boundary" mapping="boundary" />
+    <Primitive path="app:leisure" mapping="leisure" />
+    <Primitive path="app:name" mapping="name" />
+    <Primitive path="app:tourism" mapping="tourism" />
+    <Primitive path="app:way_area" mapping="way_area" />
+    <Geometry path="app:geometry" mapping="geometry">
+      <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
+    </Geometry>
+  </FeatureTypeMapping>
+
+</SQLFeatureStore>

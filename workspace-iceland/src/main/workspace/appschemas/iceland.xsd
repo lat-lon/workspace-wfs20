@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2"
+        xmlns:app="http://www.deegree.org/app" xmlns:xlink="http://www.w3.org/1999/xlink"
+        targetNamespace="http://www.deegree.org/app" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd" />
+  <element name="gns_iceland" substitutionGroup="gml:AbstractFeature">
+    <complexType>
+      <complexContent>
+        <extension base="gml:AbstractFeatureType">
+          <sequence>
+            <element name="rc" minOccurs="0" type="decimal" />
+            <element name="ufi" minOccurs="0" type="decimal" />
+            <element name="uni" minOccurs="0" type="decimal" />
+            <element name="lat" minOccurs="0" type="decimal" />
+            <element name="long" minOccurs="0" type="decimal" />
+            <element name="dms_lat" minOccurs="0" type="string" />
+            <element name="dms_long" minOccurs="0" type="string" />
+            <element name="mgrs" minOccurs="0" type="string" />
+            <element name="jog" minOccurs="0" type="string" />
+            <element name="fc" minOccurs="0" type="string" />
+            <element name="dsg" minOccurs="0" type="string" />
+            <element name="pc" minOccurs="0" type="decimal" />
+            <element name="cc1" minOccurs="0" type="string" />
+            <element name="adm1" minOccurs="0" type="string" />
+            <element name="pop" minOccurs="0" type="decimal" />
+            <element name="elev" minOccurs="0" type="decimal" />
+            <element name="cc2" minOccurs="0" type="string" />
+            <element name="nt" minOccurs="0" type="string" />
+            <element name="lc" minOccurs="0" type="string" />
+            <element name="short_form" minOccurs="0" type="string" />
+            <element name="generic" minOccurs="0" type="string" />
+            <element name="sort_name_ro" minOccurs="0" type="string" />
+            <element name="full_name_ro" minOccurs="0" type="string" />
+            <element name="full_name_nd_ro" minOccurs="0" type="string" />
+            <element name="sort_name_rg" minOccurs="0" type="string" />
+            <element name="full_name_rg" minOccurs="0" type="string" />
+            <element name="full_name_nd_rg" minOccurs="0" type="string" />
+            <element name="note" minOccurs="0" type="string" />
+            <element name="modify_date" minOccurs="0" type="string" />
+            <element name="display" minOccurs="0" type="string" />
+            <element name="name_rank" minOccurs="0" type="decimal" />
+            <element name="name_link" minOccurs="0" type="decimal" />
+            <element name="transl_cd" minOccurs="0" type="string" />
+            <element name="nm_modify_date" minOccurs="0" type="string" />
+            <element name="f_efctv_dt" minOccurs="0" type="string" />
+            <element name="f_term_dt" minOccurs="0" type="string" />
+            <element name="geometry" minOccurs="0" type="gml:PointPropertyType" />
+          </sequence>
+        </extension>
+      </complexContent>
+    </complexType>
+  </element>
+  <element name="osm_protected_area" substitutionGroup="gml:AbstractFeature">
+    <complexType>
+      <complexContent>
+        <extension base="gml:AbstractFeatureType">
+          <sequence>
+            <element name="osm_id" minOccurs="0" type="integer" />
+            <element name="boundary" minOccurs="0" type="string" />
+            <element name="leisure" minOccurs="0" type="string" />
+            <element name="name" minOccurs="0" type="string" />
+            <element name="tourism" minOccurs="0" type="string" />
+            <element name="way_area" minOccurs="0" type="decimal" />
+            <element name="geometry" minOccurs="0" type="gml:GeometryPropertyType" />
+          </sequence>
+        </extension>
+      </complexContent>
+    </complexType>
+  </element>
+  <element name="osm_administrative" substitutionGroup="gml:AbstractFeature">
+    <complexType>
+      <complexContent>
+        <extension base="gml:AbstractFeatureType">
+          <sequence>
+            <element name="osm_id" minOccurs="0" type="integer" />
+            <element name="admin_level" minOccurs="0" type="string" />
+            <element name="name" minOccurs="0" type="string" />
+            <element name="place" minOccurs="0" type="string" />
+            <element name="way_area" minOccurs="0" type="decimal" />
+            <element name="geometry" minOccurs="0" type="gml:GeometryPropertyType" />
+          </sequence>
+        </extension>
+      </complexContent>
+    </complexType>
+  </element>
+</schema>
