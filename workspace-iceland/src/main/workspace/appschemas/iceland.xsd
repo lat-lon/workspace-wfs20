@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2"
-        xmlns:app="http://www.deegree.org/app" xmlns:xlink="http://www.w3.org/1999/xlink"
-        targetNamespace="http://www.deegree.org/app" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  xmlns:app="http://www.deegree.org/app" xmlns:xlink="http://www.w3.org/1999/xlink"
+  targetNamespace="http://www.deegree.org/app" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd" />
   <element name="gns_iceland" substitutionGroup="gml:AbstractFeature">
     <complexType>
@@ -75,7 +75,15 @@
             <element name="osm_id" minOccurs="0" type="integer" />
             <element name="admin_level" minOccurs="0" type="string" />
             <element name="name" minOccurs="0" type="string" />
-            <element name="place" minOccurs="0" type="string" />
+            <element name="place" minOccurs="0" nillable="true">
+              <complexType>
+                <simpleContent>
+                  <extension base="string">
+                    <attribute name="nilReason" type="gml:NilReasonType" />
+                  </extension>
+                </simpleContent>
+              </complexType>
+            </element>
             <element name="way_area" minOccurs="0" type="decimal" />
             <element name="geometry" minOccurs="0" type="gml:GeometryPropertyType" />
           </sequence>

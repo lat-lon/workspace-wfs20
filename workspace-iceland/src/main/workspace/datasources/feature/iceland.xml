@@ -1,7 +1,7 @@
 <SQLFeatureStore configVersion="3.4.0" xmlns="http://www.deegree.org/datasource/feature/sql"
-                 xmlns:app="http://www.deegree.org/app"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="http://www.deegree.org/datasource/feature/sql
+  xmlns:app="http://www.deegree.org/app"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.deegree.org/datasource/feature/sql
   http://schemas.deegree.org/datasource/feature/sql/3.4.0/sql.xsd">
   <JDBCConnId>postgis_local</JDBCConnId>
   <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
@@ -10,7 +10,7 @@
   <FeatureTypeMapping table="gns_iceland" name="app:gns_iceland">
     <FIDMapping prefix="gns_iceland_">
       <Column name="id" type="integer" />
-      <SequenceIDGenerator sequence="gns_iceland_seq"/>
+      <SequenceIDGenerator sequence="gns_iceland_seq" />
     </FIDMapping>
     <Primitive path="gml:description" mapping="gml_description" />
     <Primitive path="gml:identifier" mapping="gml_identifier" />
@@ -59,7 +59,7 @@
   <FeatureTypeMapping table="osm_administrative" name="app:osm_administrative">
     <FIDMapping prefix="osm_administrative_">
       <Column name="id" type="integer" />
-      <SequenceIDGenerator sequence="osm_administrative_seq"/>
+      <SequenceIDGenerator sequence="osm_administrative_seq" />
     </FIDMapping>
     <Primitive path="gml:description" mapping="gml_description" />
     <Primitive path="gml:identifier" mapping="gml_identifier" />
@@ -67,7 +67,11 @@
     <Primitive path="app:osm_id" mapping="osm_id" />
     <Primitive path="app:admin_level" mapping="admin_level" />
     <Primitive path="app:name" mapping="name" />
-    <Primitive path="app:place" mapping="place" />
+    <Complex path="app:place">
+      <Primitive path="text()" mapping="place" />
+      <Primitive path="@nilReason" mapping="place_attr_nilreason" />
+      <Primitive path="@xsi:nil" mapping="place_attr_nil" />
+    </Complex>
     <Primitive path="app:way_area" mapping="way_area" />
     <Geometry path="app:geometry" mapping="geometry">
       <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
@@ -77,7 +81,7 @@
   <FeatureTypeMapping table="osm_protected_area" name="app:osm_protected_area">
     <FIDMapping prefix="osm_protected_area_">
       <Column name="id" type="integer" />
-      <SequenceIDGenerator sequence="osm_protected_area_seq"/>
+      <SequenceIDGenerator sequence="osm_protected_area_seq" />
     </FIDMapping>
     <Primitive path="gml:description" mapping="gml_description" />
     <Primitive path="gml:identifier" mapping="gml_identifier" />
