@@ -9,6 +9,7 @@
   </SupportedVersions>
 
   <EnableTransactions>true</EnableTransactions>
+  <EnableResponseBuffering>true</EnableResponseBuffering>
 
   <QueryCRS>urn:ogc:def:crs:EPSG::4326</QueryCRS>
 
