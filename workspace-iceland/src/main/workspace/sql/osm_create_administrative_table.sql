@@ -7,3 +7,5 @@ alter table osm_administrative add column id integer default nextval('osm_admini
 ALTER TABLE osm_administrative ADD COLUMN gml_description varchar;
 ALTER TABLE osm_administrative ADD COLUMN gml_identifier varchar;
 ALTER TABLE osm_administrative ADD COLUMN gml_name varchar;
+ALTER TABLE osm_administrative ADD COLUMN place_attr_nil boolean;
+ALTER TABLE osm_administrative ADD COLUMN place_attr_nilreason text;
