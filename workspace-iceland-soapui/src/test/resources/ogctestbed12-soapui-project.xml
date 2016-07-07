@@ -581,7 +581,7 @@ http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
   <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
     <fes:Filter>
       <fes:Before>
-        <fes:ValueReference>app:osm_protected_area/app:osm_protected_area_date</fes:ValueReference>
+        <fes:ValueReference>app:osm_protected_area/app:protected_area_date</fes:ValueReference>
         <fes:ValueReference>app:osm_administrative/app:administrative_date</fes:ValueReference>
       </fes:Before>
     </fes:Filter>
@@ -608,7 +608,7 @@ http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
   <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
     <fes:Filter>
       <fes:Before>
-        <fes:ValueReference>app:osm_protected_area/app:osm_protected_area_date</fes:ValueReference>
+        <fes:ValueReference>app:osm_protected_area/app:protected_area_date</fes:ValueReference>
         <fes:ValueReference>app:osm_administrative/app:administrative_date</fes:ValueReference>
       </fes:Before>
     </fes:Filter>
@@ -636,7 +636,7 @@ http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
   <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
     <fes:Filter>
       <fes:After>
-        <fes:ValueReference>app:osm_protected_area/app:osm_protected_area_datetime</fes:ValueReference>
+        <fes:ValueReference>app:osm_protected_area/app:protected_area_datetime</fes:ValueReference>
         <fes:ValueReference>app:osm_administrative/app:administrative_datetime</fes:ValueReference>
       </fes:After>
     </fes:Filter>
@@ -664,7 +664,7 @@ http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
   <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
     <fes:Filter>
       <fes:After>
-        <fes:ValueReference>app:osm_protected_area/app:osm_protected_area_datetime</fes:ValueReference>
+        <fes:ValueReference>app:osm_protected_area/app:protected_area_datetime</fes:ValueReference>
         <fes:ValueReference>app:osm_administrative/app:administrative_datetime</fes:ValueReference>
       </fes:After>
     </fes:Filter>
@@ -692,7 +692,7 @@ http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
   <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
     <fes:Filter>
       <fes:During>
-        <fes:ValueReference>app:osm_protected_area/app:osm_protected_area_date</fes:ValueReference>
+        <fes:ValueReference>app:osm_protected_area/app:protected_area_date</fes:ValueReference>
         <fes:ValueReference>app:osm_administrative/app:administrative_date</fes:ValueReference>
       </fes:During>
     </fes:Filter>
@@ -720,7 +720,7 @@ http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
   <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
     <fes:Filter>
       <fes:During>
-        <fes:ValueReference>app:osm_protected_area/app:osm_protected_area_date</fes:ValueReference>
+        <fes:ValueReference>app:osm_protected_area/app:protected_area_date</fes:ValueReference>
         <fes:ValueReference>app:osm_administrative/app:administrative_date</fes:ValueReference>
       </fes:During>
     </fes:Filter>
@@ -748,7 +748,7 @@ http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
   <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
     <fes:Filter>
       <fes:TEquals>
-        <fes:ValueReference>app:osm_protected_area/app:osm_protected_area_date</fes:ValueReference>
+        <fes:ValueReference>app:osm_protected_area/app:protected_area_date</fes:ValueReference>
         <fes:ValueReference>app:osm_administrative/app:administrative_date</fes:ValueReference>
       </fes:TEquals>
     </fes:Filter>
@@ -776,7 +776,7 @@ http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
   <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
     <fes:Filter>
       <fes:TEquals>
-        <fes:ValueReference>app:osm_protected_area/app:osm_protected_area_date</fes:ValueReference>
+        <fes:ValueReference>app:osm_protected_area/app:protected_area_date</fes:ValueReference>
         <fes:ValueReference>app:osm_administrative/app:administrative_date</fes:ValueReference>
       </fes:TEquals>
     </fes:Filter>
