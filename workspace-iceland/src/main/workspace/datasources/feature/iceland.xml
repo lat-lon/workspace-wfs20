@@ -71,9 +71,8 @@
       <Primitive path="@nilReason" mapping="place_attr_nilreason" />
       <Primitive path="@xsi:nil" mapping="place_attr_nil" />
     </Complex>
+    <Primitive path="app:osm_timestamp" mapping="osm_timestamp" />
     <Primitive path="app:way_area" mapping="way_area" />
-    <Primitive path="app:administrative_date" mapping="administrative_date" />
-    <Primitive path="app:administrative_datetime" mapping="administrative_datetime" />
     <Geometry path="app:geometry" mapping="geometry">
       <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
     </Geometry>
@@ -92,9 +91,8 @@
     <Primitive path="app:leisure" mapping="leisure" />
     <Primitive path="app:name" mapping="name" />
     <Primitive path="app:tourism" mapping="tourism" />
+    <Primitive path="app:osm_timestamp" mapping="osm_timestamp" />
     <Primitive path="app:way_area" mapping="way_area" />
-    <Primitive path="app:protected_area_date" mapping="protected_area_date" />
-    <Primitive path="app:protected_area_datetime" mapping="protected_area_datetime" />
     <Geometry path="app:geometry" mapping="geometry">
       <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
     </Geometry>

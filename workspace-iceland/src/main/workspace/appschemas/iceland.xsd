@@ -60,9 +60,8 @@
             <element name="leisure" minOccurs="0" type="string" />
             <element name="name" minOccurs="0" type="string" />
             <element name="tourism" minOccurs="0" type="string" />
+            <element name="osm_timestamp" minOccurs="0" type="dateTime" />
             <element name="way_area" minOccurs="0" type="decimal" />
-            <element name="protected_area_date" minOccurs="0" type="date" />
-            <element name="protected_area_datetime" minOccurs="0" type="dateTime" />
             <element name="geometry" minOccurs="0" type="gml:SurfacePropertyType" />
           </sequence>
         </extension>
@@ -86,9 +85,8 @@
                 </simpleContent>
               </complexType>
             </element>
+            <element name="osm_timestamp" minOccurs="0" type="dateTime" />
             <element name="way_area" minOccurs="0" type="decimal" />
-            <element name="administrative_date" minOccurs="0" type="date" />
-            <element name="administrative_datetime" minOccurs="0" type="dateTime" />
             <element name="geometry" minOccurs="0" type="gml:SurfacePropertyType" />
           </sequence>
         </extension>
