@@ -24,7 +24,7 @@ function importGN {
 }
 
 function importOSM {
-  osm2pgsql --keep-coastlines -s -d iceland ../data/iceland-latest.osm.pbf
+  osm2pgsql -S ../data/iceland-latest.style --keep-coastlines -x -s -d iceland ../data/iceland-latest.osm.pbf
   psql -d iceland -f osm_import_to_epsg-4326.sql
   psql -d iceland -f osm_create_administrative_table.sql
   psql -d iceland -f osm_create_protected_area_table.sql
