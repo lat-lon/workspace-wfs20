@@ -27,7 +27,7 @@ function importOSM {
 }
 
 function createDump {
- pg_dump -t osm_protected_area_seq -t osm_administrative_seq -t osm_protected_area -t psm_administrative iceland_dump_base -f /tmp/iceland-latest.dump
+ pg_dump -t osm_protected_area_seq -t osm_administrative_seq -t osm_protected_area -t osm_administrative iceland_dump_base -f ../data/iceland-latest.dump
 } 
 
 function dropDB {
