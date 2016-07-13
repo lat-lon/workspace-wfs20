@@ -24,6 +24,7 @@ function importGN {
 }
 
 function importOSM {
+ #requires osm2psql >= 0.90.0 (contains fix for https://github.com/openstreetmap/osm2pgsql/issues/137)
   osm2pgsql -S ../data/iceland-latest.style --keep-coastlines -x -s -d iceland ../data/iceland-latest.osm.pbf
   psql -d iceland -f osm_import_to_epsg-4326.sql
   psql -d iceland -f osm_create_administrative_table.sql
