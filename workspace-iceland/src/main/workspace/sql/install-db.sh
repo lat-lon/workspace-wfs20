@@ -1,14 +1,13 @@
 #!/bin/bash
 
 #
+# Sets up the database for this workspace.
+#
 # Execute script as 'postgresql' user.
 # Following tools have to be installed:
 # * dropdb
 # * psql
 # * createdb
-# * osm2pgsql
-#  * requires osm2psql >= 0.90.0 (contains fix for https://github.com/openstreetmap/osm2pgsql/issues/137)
-#  * Ubuntu package can be downloaded from http://archive.ubuntu.com/ubuntu/pool/universe/o/osm2pgsql/
 #
 
 function dropDB {

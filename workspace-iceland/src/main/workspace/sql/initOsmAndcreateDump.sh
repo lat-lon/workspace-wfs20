@@ -1,16 +1,19 @@
 #!/bin/bash
 
 #
+# Creates a database dump of a *.osm.pbf file. This dump can be used by the install.sh script.
+# Creating this dump is just necessary if the *.osm.pbf file is updated. Otherwise, a version of this dump already exists in the workspace.
+#
 # Execute script as 'postgresql' user.
 # Following tools have to be installed:
-# * createdb
-# * dropdb
 # * psql
-# * pg_dump
+# * createdb
 # * osm2pgsql
 #  -> requires osm2psql >= 0.90.0 (contains fix for https://github.com/openstreetmap/osm2pgsql/issues/137)
 #  -> Ubuntu package can be downloaded from http://archive.ubuntu.com/ubuntu/pool/universe/o/osm2pgsql/
-
+# * pg_dump
+# * dropdb
+#
 
 function createDB {
   psql -c "CREATE USER deegree WITH PASSWORD 'deegree'"
