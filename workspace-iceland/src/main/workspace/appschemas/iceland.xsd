@@ -36,12 +36,12 @@
             <element name="full_name_rg" minOccurs="0" type="string" />
             <element name="full_name_nd_rg" minOccurs="0" type="string" />
             <element name="note" minOccurs="0" type="string" />
-            <element name="modify_date" minOccurs="0" type="string" />
+            <element name="modify_date" minOccurs="0" type="date" />
             <element name="display" minOccurs="0" type="string" />
             <element name="name_rank" minOccurs="0" type="decimal" />
             <element name="name_link" minOccurs="0" type="decimal" />
             <element name="transl_cd" minOccurs="0" type="string" />
-            <element name="nm_modify_date" minOccurs="0" type="string" />
+            <element name="nm_modify_date" minOccurs="0" type="date" />
             <element name="f_efctv_dt" minOccurs="0" type="string" />
             <element name="f_term_dt" minOccurs="0" type="string" />
             <element name="geometry" minOccurs="0" type="gml:PointPropertyType" />
@@ -60,6 +60,7 @@
             <element name="leisure" minOccurs="0" type="string" />
             <element name="name" minOccurs="0" type="string" />
             <element name="tourism" minOccurs="0" type="string" />
+            <element name="osm_timestamp" minOccurs="0" type="dateTime" />
             <element name="way_area" minOccurs="0" type="decimal" />
             <element name="geometry" minOccurs="0" type="gml:SurfacePropertyType" />
           </sequence>
@@ -84,6 +85,7 @@
                 </simpleContent>
               </complexType>
             </element>
+            <element name="osm_timestamp" minOccurs="0" type="dateTime" />
             <element name="way_area" minOccurs="0" type="decimal" />
             <element name="geometry" minOccurs="0" type="gml:SurfacePropertyType" />
           </sequence>

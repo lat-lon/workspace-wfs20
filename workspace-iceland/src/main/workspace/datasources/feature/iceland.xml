@@ -1,8 +1,7 @@
 <SQLFeatureStore configVersion="3.4.0" xmlns="http://www.deegree.org/datasource/feature/sql"
   xmlns:app="http://www.deegree.org/app"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.deegree.org/datasource/feature/sql
-  http://schemas.deegree.org/datasource/feature/sql/3.4.0/sql.xsd">
+  xsi:schemaLocation="http://www.deegree.org/datasource/feature/sql http://schemas.deegree.org/datasource/feature/sql/3.4.0/sql.xsd">
   <JDBCConnId>postgis_local</JDBCConnId>
   <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
   <GMLSchema>../../appschemas/iceland.xsd</GMLSchema>
@@ -72,6 +71,7 @@
       <Primitive path="@nilReason" mapping="place_attr_nilreason" />
       <Primitive path="@xsi:nil" mapping="place_attr_nil" />
     </Complex>
+    <Primitive path="app:osm_timestamp" mapping="osm_timestamp" />
     <Primitive path="app:way_area" mapping="way_area" />
     <Geometry path="app:geometry" mapping="geometry">
       <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
@@ -91,6 +91,7 @@
     <Primitive path="app:leisure" mapping="leisure" />
     <Primitive path="app:name" mapping="name" />
     <Primitive path="app:tourism" mapping="tourism" />
+    <Primitive path="app:osm_timestamp" mapping="osm_timestamp" />
     <Primitive path="app:way_area" mapping="way_area" />
     <Geometry path="app:geometry" mapping="geometry">
       <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
