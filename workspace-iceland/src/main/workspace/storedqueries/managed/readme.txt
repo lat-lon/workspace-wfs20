@@ -1,0 +1,1 @@
+Stored queries created via WFS interface are saved in this directory.
