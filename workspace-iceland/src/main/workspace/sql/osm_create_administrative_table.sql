@@ -9,3 +9,8 @@ ALTER TABLE osm_administrative ADD COLUMN gml_identifier varchar;
 ALTER TABLE osm_administrative ADD COLUMN gml_name varchar;
 ALTER TABLE osm_administrative ADD COLUMN place_attr_nil boolean;
 ALTER TABLE osm_administrative ADD COLUMN place_attr_nilreason text;
+ALTER TABLE osm_administrative ADD COLUMN osm_timestamp_modified_id varchar;
+ALTER TABLE osm_administrative ADD COLUMN osm_timestamp_modified timestamptz;
+
+UPDATE osm_administrative set osm_timestamp_modified_id = 'TP_' || id;
+UPDATE osm_administrative set osm_timestamp_modified = cast( osm_timestamp + '1 day'::interval as timestamp);
