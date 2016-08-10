@@ -74,8 +74,8 @@
     <Primitive path="app:osm_timestamp" mapping="osm_timestamp" />
     <Complex path="app:period" >
       <Primitive path="@gml:id" mapping="osm_timestamp_modified_id"/>
-      <Primitive path="gml:beginPosition" mapping="osm_timestamp"/>
-      <Primitive path="gml:endPosition" mapping="osm_timestamp_modified"/>
+      <Primitive path="gml:beginPosition" mapping="osm_timestamp" type="dateTime" />
+      <Primitive path="gml:endPosition" mapping="osm_timestamp_modified" type="dateTime" />
     </Complex>
     <Primitive path="app:way_area" mapping="way_area" />
     <Geometry path="app:geometry" mapping="geometry">
@@ -99,8 +99,8 @@
     <Primitive path="app:osm_timestamp" mapping="osm_timestamp" />
     <Complex path="app:period" >
       <Primitive path="@gml:id" mapping="osm_timestamp_modified_id"/>
-      <Primitive path="gml:beginPosition" mapping="osm_timestamp"/>
-      <Primitive path="gml:endPosition" mapping="osm_timestamp_modified"/>
+      <Primitive path="gml:beginPosition" mapping="osm_timestamp" type="dateTime" />
+      <Primitive path="gml:endPosition" mapping="osm_timestamp_modified" type="dateTime" />
     </Complex>
     <Primitive path="app:way_area" mapping="way_area" />
     <Geometry path="app:geometry" mapping="geometry">
