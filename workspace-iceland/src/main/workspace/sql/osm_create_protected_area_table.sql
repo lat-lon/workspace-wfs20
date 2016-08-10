@@ -10,5 +10,5 @@ ALTER TABLE osm_protected_area ADD COLUMN gml_name varchar;
 ALTER TABLE osm_protected_area ADD COLUMN osm_timestamp_modified_id varchar;
 ALTER TABLE osm_protected_area ADD COLUMN osm_timestamp_modified timestamptz;
 
-UPDATE osm_protected_area set osm_timestamp_modified_id = 'TP_' || id;
+UPDATE osm_protected_area set osm_timestamp_modified_id = 'TP_osm_protected_area_' || id;
 UPDATE osm_protected_area set osm_timestamp_modified = cast( osm_timestamp + '1 day'::interval as timestamp);
