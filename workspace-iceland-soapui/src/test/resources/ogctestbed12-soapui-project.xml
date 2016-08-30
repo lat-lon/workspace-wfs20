@@ -448,7 +448,95 @@ declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
 exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0') or 
-                                     @numberMatched='7' and @numberReturned='7'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="35ab45a9-2573-4857-addf-9df5fff264cb" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Insert" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="Insert" id="9c8249c6-57ca-4996-b6ac-50e9b20654de"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="898f8899-615a-4abb-930f-0064817fe628" name="Insert" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+                                     @numberMatched='7' and @numberReturned='7'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ef496087-ce1f-40a8-a4ae-ebb9cf9dd56e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetFeature-UOM" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="POST-GetFeature-DWithin-UOM=Meter" id="1c44ae1a-c257-43a4-a412-f973a996df9c"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="cbbb28f0-4113-40fd-8f1d-eea17bcf4dec" name="POST-GetFeature-DWithin-UOM=Meter" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
+ xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" 
+ xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
+ resultType="hits">
+  <wfs:Query typeNames="app:osm_protected_area">
+    <fes:Filter>
+      <fes:DWithin>
+        <fes:ValueReference>app:geometry</fes:ValueReference>
+        <gml:Point gml:id="P1" srsName="urn:ogc:def:crs:EPSG::4326">
+          <gml:pos>-23 63</gml:pos>
+         </gml:Point>
+         <fes:Distance uom="m">120.0</fes:Distance>
+      </fes:DWithin>
+    </fes:Filter>
+ </wfs:Query>
+</wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="2ae93845-7886-497d-ac81-70b1a2e17c53" name="XPath Match"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+/wfs:FeatureCollection/@numberMatched</path><content>27</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-DWithin-UOM=KiloMeter" id="90474522-884f-4907-9cfd-eb52766128df" disabled="true"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="cbbb28f0-4113-40fd-8f1d-eea17bcf4dec" name="POST-GetFeature-DWithin-UOM=KiloMeter" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
+ xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" 
+ xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
+ resultType="hits">
+  <wfs:Query typeNames="app:osm_protected_area">
+    <fes:Filter>
+      <fes:DWithin>
+        <fes:ValueReference>app:geometry</fes:ValueReference>
+        <gml:Point gml:id="P1" srsName="urn:ogc:def:crs:EPSG::4326">
+          <gml:pos>-23 63</gml:pos>
+         </gml:Point>
+         <fes:Distance uom="km">0.12</fes:Distance>
+      </fes:DWithin>
+    </fes:Filter>
+ </wfs:Query>
+</wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="2ae93845-7886-497d-ac81-70b1a2e17c53" name="XPath Match"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+/wfs:FeatureCollection/@numberMatched</path><content>27</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Beyond-UOM=Meter" id="1914ada4-26a0-46ad-8239-f5a57878ac0e"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="cbbb28f0-4113-40fd-8f1d-eea17bcf4dec" name="POST-GetFeature-Beyond-UOM=Meter" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
+ xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" 
+ xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
+ resultType="hits">
+  <wfs:Query typeNames="app:osm_protected_area">
+    <fes:Filter>
+      <fes:Beyond>
+        <fes:ValueReference>app:geometry</fes:ValueReference>
+        <gml:Point gml:id="P1" srsName="urn:ogc:def:crs:EPSG::4326">
+          <gml:pos>-23 63</gml:pos>
+         </gml:Point>
+         <fes:Distance uom="m">120</fes:Distance>
+      </fes:Beyond>
+    </fes:Filter>
+ </wfs:Query>
+</wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="2ae93845-7886-497d-ac81-70b1a2e17c53" name="XPath Match"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+/wfs:FeatureCollection/@numberMatched</path><content>70</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Beyond-UOM=KiloMeter" id="79531aac-9559-4b53-916c-4d3dbd69f671" disabled="true"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="cbbb28f0-4113-40fd-8f1d-eea17bcf4dec" name="POST-GetFeature-Beyond-UOM=KiloMeter" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
+ xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" 
+ xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
+ resultType="hits">
+  <wfs:Query typeNames="app:osm_protected_area">
+    <fes:Filter>
+      <fes:Beyond>
+        <fes:ValueReference>app:geometry</fes:ValueReference>
+        <gml:Point gml:id="P1" srsName="urn:ogc:def:crs:EPSG::4326">
+          <gml:pos>-23 63</gml:pos>
+         </gml:Point>
+         <fes:Distance uom="km">0.12</fes:Distance>
+      </fes:Beyond>
+    </fes:Filter>
+ </wfs:Query>
+</wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="2ae93845-7886-497d-ac81-70b1a2e17c53" name="XPath Match"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+/wfs:FeatureCollection/@numberMatched</path><content>70</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="35ab45a9-2573-4857-addf-9df5fff264cb" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Insert" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="Insert" id="9c8249c6-57ca-4996-b6ac-50e9b20654de"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="898f8899-615a-4abb-930f-0064817fe628" name="Insert" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <wfs:Transaction version="2.0.0" service="WFS"
   xmlns:wfs="http://www.opengis.net/wfs/2.0">
   <wfs:Insert xmlns:gml="http://www.opengis.net/gml/3.2">
@@ -581,7 +669,23 @@ boolean(/wfs:FeatureCollection)</path><content>true</content><allowWildcards>fal
 	</wfs:Query>
 </wfs:GetFeature>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="235fee3e-ab74-4932-80f6-a2d38c8d2586" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="92ccdde4-deb1-417e-b405-130e0e395b08" name="XPath Match"><con:configuration><path>declare namespace ows='http://www.opengis.net/ows/1.1'
 
-/ows:ExceptionReport/ows:Exception/@exceptionCode</path><content>InvalidParameterValue</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0113323f-76f6-4463-b720-6e115f293fc6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getFeatureInUnsupportedCRS" searchProperties="true" disabled="true"><con:settings/><con:testStep type="httprequest" name="GET" id="66e47c98-2484-49ec-84bb-e48b4dddde35"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1f3d02e5-88f6-4be8-b90b-7d94a1d8dde7" name="GET" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding/><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request>&lt;wfs:GetFeature xmlns:wfs="http://www.opengis.net/wfs/2.0" count="10" service="WFS" startIndex="0"
+/ows:ExceptionReport/ows:Exception/@exceptionCode</path><content>InvalidParameterValue</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="GET-resultType=HITS" id="fd7a9ed2-a38f-4ce3-8a3a-f77be17d05dd"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1f3d02e5-88f6-4be8-b90b-7d94a1d8dde7" name="GET-resultType=HITS" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding/><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<wfs:GetFeature xmlns:wfs="http://www.opengis.net/wfs/2.0"
+	resultType="hits" service="WFS" startIndex="0" version="2.0.0">
+	<wfs:Query xmlns:ns55="http://www.deegree.org/app" typeNames="ns55:gns_iceland">
+		<fes:Filter xmlns:fes="http://www.opengis.net/fes/2.0">
+			<fes:BBOX>
+				<fes:ValueReference xmlns:tns="http://www.opengis.net/gml/3.2">tns:description</fes:ValueReference>
+				<gml:Envelope xmlns:gml="http://www.opengis.net/gml/3.2"
+					srsName="urn:ogc:def:crs:EPSG::4326">
+					<gml:lowerCorner>62 -26</gml:lowerCorner>
+					<gml:upperCorner>67.11 -6</gml:upperCorner>
+				</gml:Envelope>
+			</fes:BBOX>
+		</fes:Filter>
+	</wfs:Query>
+</wfs:GetFeature>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="235fee3e-ab74-4932-80f6-a2d38c8d2586" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="92ccdde4-deb1-417e-b405-130e0e395b08" name="XPath Match"><con:configuration><path>declare namespace ows='http://www.opengis.net/ows/1.1'
+
+/ows:ExceptionReport/ows:Exception/@exceptionCode</path><content>InvalidParameterValue</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0113323f-76f6-4463-b720-6e115f293fc6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getFeatureInUnsupportedCRS" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="GET" id="66e47c98-2484-49ec-84bb-e48b4dddde35"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1f3d02e5-88f6-4be8-b90b-7d94a1d8dde7" name="GET" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding/><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request>&lt;wfs:GetFeature xmlns:wfs="http://www.opengis.net/wfs/2.0" count="10" service="WFS" startIndex="0"
   version="2.0.0">
   &lt;wfs:Query xmlns:ns4="http://www.deegree.org/app" srsName="urn:ogc:def:crs:EPSG::32690" typeNames="ns4:gns_iceland" />
 &lt;/wfs:GetFeature></con:request><con:assertion type="Valid HTTP Status Codes" id="235fee3e-ab74-4932-80f6-a2d38c8d2586" name="Status Codes - 400"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="92ccdde4-deb1-417e-b405-130e0e395b08" name="exceptionCode - InvalidParameterValue"><con:configuration><path>declare namespace ows='http://www.opengis.net/ows/1.1'
@@ -1494,13 +1598,19 @@ http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
   count="10">
   <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
     <fes:Filter>
-      <fes:Not>
-        <fes:Beyond>
-          <fes:ValueReference>app:osm_protected_area/app:geometry</fes:ValueReference>
-          <fes:ValueReference>app:osm_administrative/app:geometry</fes:ValueReference>
-          <fes:Distance uom="m">1000</fes:Distance>
-        </fes:Beyond>
-      </fes:Not>
+      <fes:And>
+        <fes:Not>
+          <fes:Beyond>
+            <fes:ValueReference>app:osm_protected_area/app:geometry</fes:ValueReference>
+            <fes:ValueReference>app:osm_administrative/app:geometry</fes:ValueReference>
+            <fes:Distance uom="m">1000</fes:Distance>
+          </fes:Beyond>
+        </fes:Not>
+        <fes:PropertyIsEqualTo>
+          <fes:ValueReference>app:osm_protected_area/app:name</fes:ValueReference>
+          <fes:Literal>Ósland</fes:Literal>
+        </fes:PropertyIsEqualTo>
+      </fes:And>
     </fes:Filter>
   </wfs:Query>
 </wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
@@ -1613,11 +1723,17 @@ http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
   count="10">
   <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
     <fes:Filter>
-      <fes:DWithin>
-        <fes:ValueReference>app:osm_protected_area/app:geometry</fes:ValueReference>
-        <fes:ValueReference>app:osm_administrative/app:geometry</fes:ValueReference>
-        <fes:Distance uom="m">1000</fes:Distance>
-      </fes:DWithin>
+      <fes:And>
+        <fes:DWithin>
+          <fes:ValueReference>app:osm_protected_area/app:geometry</fes:ValueReference>
+          <fes:ValueReference>app:osm_administrative/app:geometry</fes:ValueReference>
+          <fes:Distance uom="m">1000</fes:Distance>
+        </fes:DWithin>
+        <fes:PropertyIsEqualTo>
+          <fes:ValueReference>app:osm_protected_area/app:name</fes:ValueReference>
+          <fes:Literal>Ósland</fes:Literal>
+        </fes:PropertyIsEqualTo>
+      </fes:And>
     </fes:Filter>
   </wfs:Query>
 </wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
@@ -1897,129 +2013,159 @@ exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0')
  xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
 http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
- count="10000">
+ count="200">
  <wfs:Query typeNames="app:osm_protected_area app:osm_protected_area" aliases="X1 X2">
   <fes:Filter>
-   <fes:Not>
-    <fes:Crosses>
-     <fes:ValueReference>X1/app:geometry</fes:ValueReference>
-     <fes:ValueReference>X2/app:geometry</fes:ValueReference>
-    </fes:Crosses>
-   </fes:Not>
+    <fes:And>
+      <fes:Not>
+        <fes:Crosses>
+          <fes:ValueReference>X1/app:geometry</fes:ValueReference>
+          <fes:ValueReference>X2/app:geometry</fes:ValueReference>
+        </fes:Crosses>
+      </fes:Not>
+      <fes:PropertyIsEqualTo>
+        <fes:ValueReference>app:osm_protected_area/app:name</fes:ValueReference>
+        <fes:Literal>Gullfoss</fes:Literal>
+      </fes:PropertyIsEqualTo>
+    </fes:And>
   </fes:Filter>
  </wfs:Query>
 </wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>9409</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>97</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>18818</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>194</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
 exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0') or 
-                                     @numberMatched='9409' and @numberReturned='9409'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-DWithin-Self-join" id="b37273c5-3d69-4658-92df-277b061b6cdb"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-DWithin-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+                                     @numberMatched='97' and @numberReturned='97'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-DWithin-Self-join" id="b37273c5-3d69-4658-92df-277b061b6cdb"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-DWithin-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app" xmlns:wfs="http://www.opengis.net/wfs/2.0"
   xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
 http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
-  count="10000">
+  count="200">
   <wfs:Query typeNames="app:osm_protected_area app:osm_protected_area" aliases="X1 X2">
     <fes:Filter>
-      <fes:DWithin>
-        <fes:ValueReference>X1/app:geometry</fes:ValueReference>
-        <fes:ValueReference>X2/app:geometry</fes:ValueReference>
-        <fes:Distance uom="m">1000</fes:Distance>
-      </fes:DWithin>
+      <fes:And>
+        <fes:DWithin>
+          <fes:ValueReference>X1/app:geometry</fes:ValueReference>
+          <fes:ValueReference>X2/app:geometry</fes:ValueReference>
+          <fes:Distance uom="m">1000</fes:Distance>
+        </fes:DWithin>
+        <fes:PropertyIsEqualTo>
+          <fes:ValueReference>app:osm_protected_area/app:name</fes:ValueReference>
+          <fes:Literal>Hamarinn</fes:Literal>
+        </fes:PropertyIsEqualTo>
+      </fes:And>
     </fes:Filter>
   </wfs:Query>
 </wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>9409</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>97</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>18818</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>194</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
 exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0') or 
-                                     @numberMatched='9409' and @numberReturned='9409'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Contains-Self-join" id="f1cf7386-fc6c-4506-83b4-87fa31be27d9"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-Contains-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+                                     @numberMatched='97' and @numberReturned='97'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Contains-Self-join" id="f1cf7386-fc6c-4506-83b4-87fa31be27d9"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-Contains-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
  xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
 http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
- count="10000">
+ count="200">
  <wfs:Query typeNames="app:osm_protected_area app:osm_protected_area" aliases="X1 X2">
   <fes:Filter>
-   <fes:Not>
-    <fes:Contains>
+    <fes:And>
+      <fes:Not>
+        <fes:Contains>
+          <fes:ValueReference>X1/app:geometry</fes:ValueReference>
+          <fes:ValueReference>X2/app:geometry</fes:ValueReference>
+        </fes:Contains>
+      </fes:Not>       
+      <fes:PropertyIsEqualTo>
+        <fes:ValueReference>app:osm_protected_area/app:name</fes:ValueReference>
+        <fes:Literal>Gullfoss</fes:Literal>
+      </fes:PropertyIsEqualTo>
+    </fes:And>
+  </fes:Filter>
+ </wfs:Query>
+</wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>96</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>192</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0') or 
+                                     @numberMatched='96' and @numberReturned='96'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Disjoint-Self-join" id="b90c292d-eaaa-440d-8d22-36c89eef4b3c"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-Disjoint-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding/><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
+ xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
+ count="200">
+ <wfs:Query typeNames="app:osm_protected_area app:osm_protected_area" aliases="X1 X2">
+  <fes:Filter>
+   <fes:And>
+    <fes:Disjoint>
      <fes:ValueReference>X1/app:geometry</fes:ValueReference>
      <fes:ValueReference>X2/app:geometry</fes:ValueReference>
-    </fes:Contains>
-   </fes:Not> 
+    </fes:Disjoint>
+    <fes:PropertyIsEqualTo>
+     <fes:ValueReference>app:osm_protected_area/app:name</fes:ValueReference>
+     <fes:Literal>Andakíll</fes:Literal>
+    </fes:PropertyIsEqualTo>
+   </fes:And>
   </fes:Filter>
  </wfs:Query>
 </wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>9309</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>96</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>18618</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>192</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
 exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0') or 
-                                     @numberMatched='9309' and @numberReturned='9309'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Disjoint-Self-join" id="b90c292d-eaaa-440d-8d22-36c89eef4b3c"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-Disjoint-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding/><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+                                     @numberMatched='96' and @numberReturned='96'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Touches-Self-join" id="60857775-3dd5-4322-ac70-5b0b250325d7"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-Touches-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
  xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
 http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
- count="10000">
+ count="200">
  <wfs:Query typeNames="app:osm_protected_area app:osm_protected_area" aliases="X1 X2">
   <fes:Filter>
-   <fes:Disjoint>
-    <fes:ValueReference>X1/app:geometry</fes:ValueReference>
-    <fes:ValueReference>X2/app:geometry</fes:ValueReference>
-   </fes:Disjoint>
+   <fes:And>
+    <fes:Not>
+     <fes:Touches>
+      <fes:ValueReference>X1/app:geometry</fes:ValueReference>
+      <fes:ValueReference>X2/app:geometry</fes:ValueReference>
+     </fes:Touches>
+    </fes:Not>
+    <fes:PropertyIsEqualTo>
+     <fes:ValueReference>app:osm_protected_area/app:name</fes:ValueReference>
+     <fes:Literal>Andakíll</fes:Literal>
+    </fes:PropertyIsEqualTo>
+   </fes:And>
   </fes:Filter>
  </wfs:Query>
 </wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>9284</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>97</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>18568</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>194</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
 exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0') or 
-                                     @numberMatched='9284' and @numberReturned='9284'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Touches-Self-join" id="60857775-3dd5-4322-ac70-5b0b250325d7"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-Touches-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-<wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
- xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
-http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
- count="10000">
- <wfs:Query typeNames="app:osm_protected_area app:osm_protected_area" aliases="X1 X2">
-  <fes:Filter>
-   <fes:Not>
-    <fes:Touches>
-     <fes:ValueReference>X1/app:geometry</fes:ValueReference>
-     <fes:ValueReference>X2/app:geometry</fes:ValueReference>
-    </fes:Touches>
-   </fes:Not>
-  </fes:Filter>
- </wfs:Query>
-</wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>9401</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
-declare namespace app='http://www.deegree.org/app'
-declare namespace xlink='http://www.w3.org/1999/xlink'
-
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>18802</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
-declare namespace app='http://www.deegree.org/app'
-declare namespace xlink='http://www.w3.org/1999/xlink'
-
-exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0') or 
-                                     @numberMatched='9401' and @numberReturned='9401'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Within-Self-join" id="255d597f-ad5b-4af6-beb2-86b71ca4a3ba"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-Within-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding/><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+                                     @numberMatched='97' and @numberReturned='97'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Within-Self-join" id="255d597f-ad5b-4af6-beb2-86b71ca4a3ba"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-Within-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding/><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app" xmlns:wfs="http://www.opengis.net/wfs/2.0"
   xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
@@ -2048,35 +2194,42 @@ exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0')
  xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
 http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
- count="10000">
+ count="200">
  <wfs:Query typeNames="app:osm_protected_area app:osm_protected_area" aliases="X1 X2">
   <fes:Filter>
-   <fes:Not>
-    <fes:Equals>
-     <fes:ValueReference>X1/app:geometry</fes:ValueReference>
-     <fes:ValueReference>X2/app:geometry</fes:ValueReference>
-    </fes:Equals>
-   </fes:Not>
+   <fes:And>
+    <fes:Not>
+     <fes:Equals>
+      <fes:ValueReference>X1/app:geometry</fes:ValueReference>
+      <fes:ValueReference>X2/app:geometry</fes:ValueReference>
+     </fes:Equals>
+    </fes:Not>
+    <fes:PropertyIsEqualTo>
+     <fes:ValueReference>app:osm_protected_area/app:name</fes:ValueReference>
+     <fes:Literal>Gullfoss</fes:Literal>
+    </fes:PropertyIsEqualTo>
+   </fes:And>
   </fes:Filter>
  </wfs:Query>
 </wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>9312</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>96</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>18624</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>192</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
 exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0') or 
-                                     @numberMatched='9312' and @numberReturned='9312'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Beyond-Self-join" id="d30d10c0-82a5-4424-baae-3bc2740b110f"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-Beyond-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+                                     @numberMatched='96' and @numberReturned='96'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Beyond-Self-join" id="d30d10c0-82a5-4424-baae-3bc2740b110f"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-Beyond-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app" xmlns:wfs="http://www.opengis.net/wfs/2.0"
   xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
 http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
-  count="1000">
+  count="200">
   <wfs:Query typeNames="app:osm_protected_area app:osm_protected_area" aliases="X1 X2">
     <fes:Filter>
+     <fes:And>
       <fes:Not>
         <fes:Beyond>
           <fes:ValueReference>X1/app:geometry</fes:ValueReference>
@@ -2084,19 +2237,24 @@ http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
           <fes:Distance uom="m">1000</fes:Distance>
         </fes:Beyond>
       </fes:Not>
+      <fes:PropertyIsEqualTo>
+        <fes:ValueReference>app:osm_protected_area/app:name</fes:ValueReference>
+        <fes:Literal>Gullfoss</fes:Literal>
+      </fes:PropertyIsEqualTo>
+     </fes:And>
     </fes:Filter>
   </wfs:Query>
 </wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>1000</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>97</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>2000</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>194</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
 exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0') or 
-                                     @numberMatched='1000' and @numberReturned='1000'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-BBox-Self-join" id="ec104a8b-1ddc-443b-bfe3-bbfa3762adda"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-BBox-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+                                     @numberMatched='97' and @numberReturned='97'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-BBox-Self-join" id="ec104a8b-1ddc-443b-bfe3-bbfa3762adda"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-BBox-Self-join" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
  xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
@@ -2248,46 +2406,58 @@ declare namespace xlink='http://www.w3.org/1999/xlink'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
-/wfs:FeatureCollection/@numberMatched</path><content>8</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-During" id="513d4832-fbaf-40b4-bed0-eff58dd611ef" disabled="true"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-During" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+/wfs:FeatureCollection/@numberMatched</path><content>8</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-During" id="513d4832-fbaf-40b4-bed0-eff58dd611ef"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-During" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
  xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
 http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
- count="10">
-  <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
+ count="100">
+  <wfs:Query typeNames="app:osm_administrative app:osm_protected_area" aliases="X1 X2">
     <fes:Filter>
-      <fes:During>
-        <fes:ValueReference>app:osm_protected_area/app:protected_area_date</fes:ValueReference>
-        <fes:ValueReference>app:osm_administrative/app:administrative_date</fes:ValueReference>
-      </fes:During>
+      <fes:And>
+        <fes:During>
+          <fes:ValueReference>X1/app:osm_timestamp</fes:ValueReference>
+          <fes:ValueReference>X2/app:period</fes:ValueReference>
+        </fes:During>
+        <fes:PropertyIsEqualTo>
+          <fes:ValueReference>X2/app:name</fes:ValueReference>
+          <fes:Literal>Borgir</fes:Literal>
+        </fes:PropertyIsEqualTo>
+      </fes:And>
     </fes:Filter>
  </wfs:Query>
 </wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>10</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_administrative"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>19</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_administrative"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_administrative or starts-with(@xlink:href, '#osm_administrative')])</path><content>10</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_administrative or starts-with(@xlink:href, '#osm_administrative')])</path><content>19</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
-count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>10</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>19</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
 exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0') or 
-                                     @numberMatched='10' and @numberReturned='10'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-During-HITS" id="9de95eef-2482-4ef9-befd-d9768210c044" disabled="true"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-During-HITS" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+                                     @numberMatched='19' and @numberReturned='19'])</path><content>true</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-During-HITS" id="9de95eef-2482-4ef9-befd-d9768210c044"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-During-HITS" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
  xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
 http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
  resultType="hits">
-  <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
+  <wfs:Query typeNames="app:osm_administrative app:osm_protected_area" aliases="X1 X2">
     <fes:Filter>
-      <fes:During>
-        <fes:ValueReference>app:osm_protected_area/app:protected_area_date</fes:ValueReference>
-        <fes:ValueReference>app:osm_administrative/app:administrative_date</fes:ValueReference>
-      </fes:During>
+      <fes:And>
+        <fes:During>
+          <fes:ValueReference>X1/app:osm_timestamp</fes:ValueReference>
+          <fes:ValueReference>X2/app:period</fes:ValueReference>
+        </fes:During>
+        <fes:PropertyIsEqualTo>
+          <fes:ValueReference>X2/app:name</fes:ValueReference>
+          <fes:Literal>Borgir</fes:Literal>
+        </fes:PropertyIsEqualTo>
+      </fes:And>
     </fes:Filter>
  </wfs:Query>
 </wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
@@ -2295,11 +2465,11 @@ count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>0</content><al
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
-/wfs:FeatureCollection/@numberReturned</path><content>0</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+/wfs:FeatureCollection/@numberReturned</path><content>0</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b48472b-fffc-4fbd-bb9e-e475cd591162" name="numberMatched"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace app='http://www.deegree.org/app'
 declare namespace xlink='http://www.w3.org/1999/xlink'
 
-/wfs:FeatureCollection/@numberMatched</path><content>97</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-TEquals" id="9fb75b0c-cb80-4ca1-889e-1e17ea791ebc"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-TEquals" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+/wfs:FeatureCollection/@numberMatched</path><content>19</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-TEquals" id="9fb75b0c-cb80-4ca1-889e-1e17ea791ebc"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="1ec48c1e-d784-48d9-aa22-13c8fba7f73f" name="POST-GetFeature-TEquals" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
  xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
@@ -2612,7 +2782,39 @@ declare namespace fes='http://www.opengis.net/fes/2.0'
   </wfs:StoredQuery>
 </wfs:LockFeature>]]></con:request><con:assertion type="XPath Match" id="b729e115-59fd-4bb8-9142-1bac3172d306" name="exceptionCode - LockHasExpired"><con:configuration><path>declare namespace ows='http://www.opengis.net/ows/1.1'
 
-/ows:ExceptionReport/ows:Exception/@exceptionCode</path><content>LockHasExpired</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="c047479c-5619-4630-9e38-613aa83eb8c6" name="HTTP Status Codes - 403"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="8f0f83de-3adb-49b4-bb90-13308b266646" name="Transactional WFS CC"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="887a56d5-fd69-43c8-a80a-2b374a4bb7e5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="updateBoundedByWithKMLPoint" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="Transaction - invalid geom" id="47d9045e-319f-4414-b039-7de01d787baf"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="dcccbeb4-ec34-43e8-8a6d-7af0cacbba63" name="Transaction - invalid geom" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<wfs:Transaction xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" service="WFS"
+/ows:ExceptionReport/ows:Exception/@exceptionCode</path><content>LockHasExpired</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="c047479c-5619-4630-9e38-613aa83eb8c6" name="HTTP Status Codes - 403"><con:configuration><codes>403</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="4c0f2528-6ec7-483d-9cf8-28689f95ca0b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="lockFeatureAndAttemptDelete-SOAP" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="LockFeature" id="5ed5cd9e-65b5-4451-95d2-8d9926886c80"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="c89f2fe6-99e0-46a9-9f43-5cd805f301d7" name="LockFeature" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<wfs:LockFeature xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:app="http://www.deegree.org/app" xmlns:fes="http://www.opengis.net/fes/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
+  expiry="5" service="WFS" version="2.0.0">
+  <wfs:StoredQuery id="urn:ogc:def:query:OGC-WFS::GetFeatureById">
+    <wfs:Parameter name="id">osm_protected_area_34</wfs:Parameter>
+  </wfs:StoredQuery>
+</wfs:LockFeature>]]></con:request><con:assertion type="XPath Match" id="67b19836-5e68-4fb2-8e81-a2f4df0d567c" name="lockId"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace gml='http://www.opengis.net/gml/3.2'
+
+exists(wfs:LockFeatureResponse/@lockId)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="944f0206-1cd6-4ebd-80de-0319e10ad5a8" name="rid"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace fes='http://www.opengis.net/fes/2.0'
+
+exists(/wfs:LockFeatureResponse/wfs:FeaturesLocked/fes:ResourceId/@rid)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="transfer" name="TransferResourceId" id="8479d246-c71a-41a3-88ab-546a3a3487b3"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="false" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ResourceId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>LockFeature</con:sourceStep><con:sourcePath>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace fes='http://www.opengis.net/fes/2.0'
+
+/wfs:LockFeatureResponse/wfs:FeaturesLocked/fes:ResourceId/@rid</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>Delete</con:targetStep><con:targetPath>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace fes='http://www.opengis.net/fes/2.0'
+
+//wfs:Transaction/wfs:Delete/fes:Filter/fes:ResourceId/@rid</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="httprequest" name="Delete" id="135c7342-f9f9-4a4b-87d1-722422c8c3cf"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="c89f2fe6-99e0-46a9-9f43-5cd805f301d7" name="Delete" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+  <soapenv:Body>
+  <wfs:Transaction version="2.0.0" service="WFS" xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd" xmlns:app="http://www.deegree.org/app" xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <wfs:Delete typeName="app:osm_protected_area">
+    <fes:Filter>
+      <fes:ResourceId rid="osm_protected_area_34"/>
+    </fes:Filter>
+  </wfs:Delete>
+</wfs:Transaction>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="dae523ad-91de-4b74-93a9-5b3a0cffd3ff" name="exceptionCode - MissingParameterValue"><con:configuration><path>declare namespace ows='http://www.opengis.net/ows/1.1'
+
+//ows:ExceptionReport/ows:Exception/@exceptionCode</path><content>MissingParameterValue</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="8f0f83de-3adb-49b4-bb90-13308b266646" name="Transactional WFS CC"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="887a56d5-fd69-43c8-a80a-2b374a4bb7e5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="updateBoundedByWithKMLPoint" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="Transaction - invalid geom" id="47d9045e-319f-4414-b039-7de01d787baf"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="dcccbeb4-ec34-43e8-8a6d-7af0cacbba63" name="Transaction - invalid geom" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<wfs:Transaction xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" service="WFS"
   version="2.0.0">
   <wfs:Update xmlns:ns64="http://www.deegree.org/app" typeName="ns64:gns_iceland">
     <wfs:Property>
@@ -2725,7 +2927,85 @@ declare namespace tns='http://www.deegree.org/app'
       <fes:ResourceId rid="osm_protected_area_8"/>
     </fes:Filter>
   </wfs:Update>
-</wfs:Transaction>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="641d46a5-24a1-48c1-a771-b6ff7203c429" name="Status Codes - 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="3a877775-4cc8-4541-9cc5-84eca92a5459" name="Stored Query WFS CC" disabled="true"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="7383d96f-c3e1-4af3-9d7a-9b5a5992882a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetCapabilities" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="GET" id="a34ead73-03b9-422e-b9e5-efcc7a9f68af"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="63b3b0c8-295e-4e47-984e-7f2fa9c21f5c" name="GET" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding/><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request/><con:assertion type="XPath Match" id="873652e4-982b-499a-a80e-c76909cc4363" name="CreateStoredQuery Operation"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+</wfs:Transaction>]]></con:request><con:assertion type="Valid HTTP Status Codes" id="641d46a5-24a1-48c1-a771-b6ff7203c429" name="Status Codes - 200"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="3144d7ff-285d-46d4-a371-f87d84a2c429" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="insertSupportedFeature-SOAP" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="Insert" id="b6aea96f-e9fa-4769-a36d-0ec42b4c0ce0"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="78ab1242-0684-4390-9cd5-0ebb141c7b5e" name="Insert" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+  <soapenv:Body>
+<wfs:Transaction xmlns:wfs="http://www.opengis.net/wfs/2.0"
+	xmlns:gml="http://www.opengis.net/gml/3.2" service="WFS" version="2.0.0">
+	<Insert xmlns="http://www.opengis.net/wfs/2.0">
+		<app:osm_administrative xmlns:app="http://www.deegree.org/app"
+			gml:id="id-1472130366539">
+			<gml:identifier codeSpace="http://cite.opengeospatial.org/">80e742d1-fbb7-4be3-ba28-d68561db9093</gml:identifier>
+			<app:osm_id>-4001119</app:osm_id>
+			<app:admin_level>5</app:admin_level>
+			<app:name>Vesturland</app:name>
+			<app:osm_timestamp>2016-04-24T15:22:30</app:osm_timestamp>
+			<app:period gml:id="TP_osm_administrative_3">
+				<gml:beginPosition>2016-04-24T15:22:30</gml:beginPosition>
+				<gml:endPosition>2016-04-25T15:22:30</gml:endPosition>
+			</app:period>
+			<app:way_area>1227470</app:way_area>
+			<app:geometry> <!--Inlined geometry 'osm_administrative_3_APP_GEOMETRY' -->
+				<gml:Polygon gml:id="osm_administrative_3_APP_GEOMETRY"
+					srsName="urn:ogc:def:crs:EPSG::4326">
+					<gml:exterior>
+						<gml:LinearRing>
+							<gml:posList>65.138700 -22.647660 65.139590 -22.647520 65.140180
+								-22.645600 65.139750 -22.645460 65.139850 -22.643210 65.141140
+								-22.643610 65.141340 -22.641750 65.141840 -22.641670 65.142510
+								-22.637910 65.142260 -22.637940 65.142290 -22.638560 65.141510
+								-22.638680 65.141920 -22.634960 65.141740 -22.634780 65.141810
+								-22.631330 65.140090 -22.634040 65.140040 -22.632230 65.139510
+								-22.631700 65.138830 -22.634560 65.138330 -22.634940 65.138820
+								-22.638520 65.138200 -22.639230 65.138030 -22.642300 65.138780
+								-22.642160 65.138580 -22.643730 65.137820 -22.643850 65.137590
+								-22.644800 65.138100 -22.644720 65.138140 -22.645930 65.138650
+								-22.645850 65.138700 -22.647660
+							</gml:posList>
+						</gml:LinearRing>
+					</gml:exterior>
+				</gml:Polygon>
+			</app:geometry>
+		</app:osm_administrative>
+	</Insert>
+</wfs:Transaction>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="28f39c93-5c96-4da7-b667-9ed4a7a97ea6" name="totalInserted"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace gml='http://www.opengis.net/gml/3.2'
+declare namespace app='http://www.deegree.org/app'
+
+//wfs:TransactionResponse/wfs:TransactionSummary/wfs:totalInserted</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="transfer" name="TransferResourceId" id="0e455ca0-effb-4ac9-b686-cf863bcae3c9"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ResourceIdToGetFeature</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Insert</con:sourceStep><con:sourcePath>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace fes='http://www.opengis.net/fes/2.0'
+
+//wfs:TransactionResponse/wfs:InsertResults/wfs:Feature/fes:ResourceId/@rid</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>GetFeature</con:targetStep><con:targetPath>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace fes='http://www.opengis.net/fes/2.0'
+
+/wfs:GetFeature/wfs:Query/fes:Filter/fes:ResourceId/@rid</con:targetPath><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>ResourceIdToDelete</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Insert</con:sourceStep><con:sourcePath>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace fes='http://www.opengis.net/fes/2.0'
+
+//wfs:TransactionResponse/wfs:InsertResults/wfs:Feature/fes:ResourceId/@rid</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>Delete</con:targetStep><con:targetPath>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace fes='http://www.opengis.net/fes/2.0'
+
+/wfs:Transaction/wfs:Delete/fes:Filter/fes:ResourceId/@rid</con:targetPath><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="httprequest" name="GetFeature" id="5b87a999-866a-4633-83b1-53a507521d4e"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="7f65a69a-184d-4b73-bcd6-0dae563d9377" name="GetFeature" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<wfs:GetFeature service="WFS" version="2.0.0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd" count="10" xmlns:app="http://www.deegree.org/app" xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <wfs:Query typeNames="app:osm_administrative">
+    <fes:Filter>
+      <fes:ResourceId rid="osm_administrative_362"/>
+    </fes:Filter>
+ </wfs:Query>
+</wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="c2ad4cee-92bf-4833-86e4-e47d78240933" name="gml:name"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace gml='http://www.opengis.net/gml/3.2'
+declare namespace app='http://www.deegree.org/app'
+
+count(/wfs:FeatureCollection /wfs:member)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="Delete" id="a4db4f0d-9d42-4f63-90cc-61401c8b1902"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="7f65a69a-184d-4b73-bcd6-0dae563d9377" name="Delete" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<wfs:Transaction service="WFS" version="2.0.0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd" count="10" xmlns:app="http://www.deegree.org/app" xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <wfs:Delete typeName="app:osm_administrative">
+    <fes:Filter>
+      <fes:ResourceId rid="osm_administrative_362"/>
+    </fes:Filter>
+  </wfs:Delete>
+</wfs:Transaction>]]></con:request><con:assertion type="XPath Match" id="3e51845f-eb7c-4057-9aae-0ffcdb43e590" name="totalDeleted"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace gml='http://www.opengis.net/gml/3.2'
+declare namespace app='http://www.deegree.org/app'
+
+//wfs:TransactionResponse/wfs:TransactionSummary/wfs:totalDeleted</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="3a877775-4cc8-4541-9cc5-84eca92a5459" name="Stored Query WFS CC"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="7383d96f-c3e1-4af3-9d7a-9b5a5992882a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetCapabilities" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="GET" id="a34ead73-03b9-422e-b9e5-efcc7a9f68af"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="63b3b0c8-295e-4e47-984e-7f2fa9c21f5c" name="GET" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding/><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request/><con:assertion type="XPath Match" id="873652e4-982b-499a-a80e-c76909cc4363" name="CreateStoredQuery Operation"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace ows='http://www.opengis.net/ows/1.1'
 
 exists(//wfs:WFS_Capabilities/ows:OperationsMetadata/ows:Operation[@name='CreateStoredQuery'])</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="873652e4-982b-499a-a80e-c76909cc4363" name="DropStoredQuery Operation"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
@@ -2801,4 +3081,137 @@ declare namespace ows='http://www.opengis.net/ows/1.1'
 
 exists(/wfs:ListStoredQueriesResponse/wfs:StoredQuery[@id='TestStoredQuery'])</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>service</con:name><con:value>WFS</con:value><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>version</con:name><con:value>2.0.0</con:value><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>request</con:name><con:value>ListStoredQueries</con:value><con:style>QUERY</con:style></con:parameter></con:parameters></con:config></con:testStep><con:testStep type="httprequest" name="DescribeStoredQueries-GET" id="f7d42dce-d711-4dd7-a3e5-e5f42d675a29"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="488308de-348d-4161-818e-bbb4430a827e" name="DescribeStoredQueries-GET" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request/><con:assertion type="XPath Match" id="1b128314-6206-414a-afc9-1d039b6ed02d" name="StoredQuery id"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0';
 
-exists(/wfs:DescribeStoredQueriesResponse/wfs:StoredQueryDescription[@id='TestStoredQuery'])</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>service</con:name><con:value>WFS</con:value><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>version</con:name><con:value>2.0.0</con:value><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>request</con:name><con:value>DescribeStoredQueries</con:value><con:style>QUERY</con:style></con:parameter></con:parameters></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>wfsEndpoint</con:name><con:value>http://ogctestbed12.lat-lon:8080/deegree/services/wfs</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+exists(/wfs:DescribeStoredQueriesResponse/wfs:StoredQueryDescription[@id='TestStoredQuery'])</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>service</con:name><con:value>WFS</con:value><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>version</con:name><con:value>2.0.0</con:value><con:style>QUERY</con:style></con:parameter><con:parameter><con:name>request</con:name><con:value>DescribeStoredQueries</con:value><con:style>QUERY</con:style></con:parameter></con:parameters></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="8faff927-54c6-42c7-b60c-7baf57253888" name="Response Paging WFS CC"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="6cb429b0-aaa6-49be-8c7b-1a92947488c8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetFeature" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="GET-GetFeature" id="4c885886-ef4d-4a75-8bd2-06bcb4460a4c"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="d2c3cfed-2e26-48aa-9383-0250f7947fbf" name="GET-GetFeature" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding/><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request/><con:assertion type="XPath Match" id="1bdc9e8e-8f6a-4b2d-8adc-c84c4ef0ceb2" name="Attribute Next"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+
+exists(/wfs:FeatureCollection[@next])</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="1bdc9e8e-8f6a-4b2d-8adc-c84c4ef0ceb2" name="Attribute Previous"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+
+exists(/wfs:FeatureCollection[@previous])</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>service</con:name><con:value>WFS</con:value><con:style>QUERY</con:style><con:default>WFS</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>request</con:name><con:value>GetFeature</con:value><con:style>QUERY</con:style><con:default>GetFeature</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>Version</con:name><con:value>2.0.0</con:value><con:style>QUERY</con:style><con:default>2.0.0</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>typename</con:name><con:value>osm_protected_area</con:value><con:style>QUERY</con:style><con:default>osm_protected_area</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>count</con:name><con:value>10</con:value><con:style>QUERY</con:style></con:parameter></con:parameters></con:config></con:testStep><con:testStep type="transfer" name="GET-TransferNext" id="ceb81666-8a24-42d3-b40e-01a757a0b29a"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>next</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GET-GetFeature</con:sourceStep><con:sourcePath>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+
+/wfs:FeatureCollection/@next</con:sourcePath><con:targetType>Endpoint</con:targetType><con:targetStep>GET-GetFeature-next-previous</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="httprequest" name="GET-GetFeature-next-previous" id="83fccf26-07b2-40b9-82b2-4424aa3f8d8d"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="d2c3cfed-2e26-48aa-9383-0250f7947fbf" name="GET-GetFeature-next-previous" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding/><con:endpoint/><con:request/><con:assertion type="XPath Match" id="1bdc9e8e-8f6a-4b2d-8adc-c84c4ef0ceb2" name="Attribute Next"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+
+exists(/wfs:FeatureCollection[@next])</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="1bdc9e8e-8f6a-4b2d-8adc-c84c4ef0ceb2" name="Attribute Previous"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+
+exists(/wfs:FeatureCollection[@previous])</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature" id="0a8f2959-6a80-4dea-a4b4-6c29964e9f3c"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="d815fb59-cecb-4911-acd4-907b0dfc32ad" name="POST-GetFeature" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
+ xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
+ count="10">
+ &lt;wfs:Query typeNames="app:osm_protected_area">
+&lt;/wfs:Query>
+&lt;/wfs:GetFeature></con:request><con:assertion type="XPath Match" id="de2c5f1c-2af9-4776-887a-4c0c199d9c74" name="Attribute Next"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+
+exists(/wfs:FeatureCollection[@next])</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="de2c5f1c-2af9-4776-887a-4c0c199d9c74" name="Attribute Previous"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+
+exists(/wfs:FeatureCollection[@previous])</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Intersects" id="59bda360-3485-48f2-9754-957884bbac7d"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="e33da081-d50f-4261-a0b7-1ac07bef7e44" name="POST-GetFeature-Intersects" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
+ xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+ http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
+ count="10">
+ <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
+  <fes:Filter>
+   <fes:Intersects>
+    <fes:ValueReference>app:osm_protected_area/app:geometry</fes:ValueReference>
+    <fes:ValueReference>app:osm_administrative/app:geometry</fes:ValueReference>
+   </fes:Intersects>
+  </fes:Filter>
+ </wfs:Query>
+</wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="221fea77-2cc5-4aac-be04-45e694d52481" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>10</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="865a6b1b-ee03-4c1c-bd00-54bae3409cdb" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>10</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="7d75f36d-3446-4066-b6eb-25fae72a5aba" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0') or 
+                                     @numberMatched='10' and @numberReturned='10'])</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="a8e3923d-ad55-4d02-bcdf-60225fc7ba5e" name="members osm_administrative"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_administrative or starts-with(@xlink:href, '#osm_administrative')])</path><content>10</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="d2e8d20a-85e9-4891-b65c-0a549d3c7bf5" name="Attribute Next"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+
+exists(/wfs:FeatureCollection[@next])</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="d2e8d20a-85e9-4891-b65c-0a549d3c7bf5" name="Attribute Previous"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+
+exists(/wfs:FeatureCollection[@previous])</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-Before" id="ce1fd9e1-86b9-4d6d-ad79-65b3f4f0a33f"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="cac7a56b-fee0-40f2-9054-09f619bcd26a" name="POST-GetFeature-Before" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding/><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app"
+ xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
+ count="10">
+  <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
+    <fes:Filter>
+      <fes:And>
+        <fes:Before>
+          <fes:ValueReference>app:osm_protected_area/app:osm_timestamp</fes:ValueReference>
+          <fes:ValueReference>app:osm_administrative/app:osm_timestamp</fes:ValueReference>
+        </fes:Before>
+        <fes:PropertyIsEqualTo>
+          <fes:ValueReference>app:osm_administrative/app:name</fes:ValueReference>
+          <fes:Literal>Dalabyggð</fes:Literal>
+        </fes:PropertyIsEqualTo>
+      </fes:And>
+    </fes:Filter>
+ </wfs:Query>
+</wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="38176c4d-457f-47f9-8138-1279a6199819" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>10</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="06da6165-fde3-4ad8-a14f-c82e9b45bc55" name="members osm_administrative"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_administrative or starts-with(@xlink:href, '#osm_administrative')])</path><content>10</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="e3924e36-ba80-471b-8c02-0416573ef725" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>10</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="6247704a-5b18-4c74-b935-124e93dd0810" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0') or 
+                                     @numberMatched='10' and @numberReturned='10'])</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="d3520487-2d7d-4953-a2cb-15546f44f8ab" name="Attribute Next"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+
+exists(/wfs:FeatureCollection[@next])</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="d3520487-2d7d-4953-a2cb-15546f44f8ab" name="Attribute Previous"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+
+exists(/wfs:FeatureCollection[@previous])</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:testStep type="httprequest" name="POST-GetFeature-PropertyIsGreaterThan" id="5c99ae41-74d2-420b-9824-483db29c1156"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="c43c7742-3fd0-4641-ba1c-254204412e50" name="POST-GetFeature-PropertyIsGreaterThan" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<wfs:GetFeature service="WFS" version="2.0.0" xmlns:app="http://www.deegree.org/app" xmlns:wfs="http://www.opengis.net/wfs/2.0"
+  xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
+  count="10">
+  <wfs:Query typeNames="app:osm_protected_area app:osm_administrative">
+    <fes:Filter>
+      <fes:And>
+        <fes:PropertyIsGreaterThan>
+          <fes:ValueReference>app:osm_protected_area/app:way_area</fes:ValueReference>
+          <fes:ValueReference>app:osm_administrative/app:way_area</fes:ValueReference>
+        </fes:PropertyIsGreaterThan>
+        <fes:PropertyIsEqualTo>
+          <fes:ValueReference>app:osm_protected_area/app:name</fes:ValueReference>
+          <fes:Literal>Álafoss</fes:Literal>
+        </fes:PropertyIsEqualTo>
+      </fes:And>
+    </fes:Filter>
+  </wfs:Query>
+</wfs:GetFeature>]]></con:request><con:assertion type="XPath Match" id="69673641-7c39-447a-9af7-01d7d895e02a" name="Number of Tuples"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple)</path><content>10</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="0f3bf728-1549-40c8-866b-3ebfdf858853" name="members osm_administrative"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_administrative or starts-with(@xlink:href, '#osm_administrative')])</path><content>10</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="f436548b-a231-4fc2-86ff-8248ab0986a5" name="members osm_protected_area"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+count(/wfs:FeatureCollection/wfs:member/wfs:Tuple/wfs:member[app:osm_protected_area or starts-with(@xlink:href, '#osm_protected_area')])</path><content>10</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="1257ea0e-fcdc-4321-bb1f-21eb03650c20" name="numberMatched and numberReturned"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace app='http://www.deegree.org/app'
+declare namespace xlink='http://www.w3.org/1999/xlink'
+
+exists(/wfs:FeatureCollection[(@numberMatched='unknown' and @numberReturned='0') or 
+                                     @numberMatched='10' and @numberReturned='10'])</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="671b44b0-5667-49d7-9d48-42879ba988cb" name="Attribute Next"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+
+exists(/wfs:FeatureCollection[@next])</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="671b44b0-5667-49d7-9d48-42879ba988cb" name="Attribute Previous"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+
+exists(/wfs:FeatureCollection[@previous])</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="fe27dc2c-6c61-4d1f-ae71-aa647a67b2f8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Capabilities" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="GET-Capabilities-ImplementsResponsePaging" id="1bc0e35c-57a3-440b-9c16-7c1d89d9990a"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="75288a86-dc4b-4f32-8197-f80bf341dc3a" name="GET-Capabilities-ImplementsResponsePaging" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding/><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request/><con:assertion type="XPath Match" id="ac99ff5d-ee73-4dfb-9f82-f8a200c94888" name="XPath Match"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+declare namespace ows='http://www.opengis.net/ows/1.1'
+
+//wfs:WFS_Capabilities/ows:OperationsMetadata/ows:Constraint[@name='ImplementsResultPaging']/ows:DefaultValue</path><content>TRUE</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:parameter><con:name>service</con:name><con:value>WFS</con:value><con:style>QUERY</con:style><con:default>WFS</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>request</con:name><con:value>GetCapabilities</con:value><con:style>QUERY</con:style><con:default>GetCapabilities</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>version</con:name><con:value>2.0.0</con:value><con:style>QUERY</con:style></con:parameter></con:parameters></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>wfsEndpoint</con:name><con:value>http://ogctestbed12.lat-lon:8080/deegree/services/wfs</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

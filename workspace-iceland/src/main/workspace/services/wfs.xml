@@ -10,6 +10,7 @@
 
   <EnableTransactions>true</EnableTransactions>
   <EnableResponseBuffering>true</EnableResponseBuffering>
+  <EnableResponsePaging>true</EnableResponsePaging>
 
   <QueryCRS>urn:ogc:def:crs:EPSG::4326</QueryCRS>
 
