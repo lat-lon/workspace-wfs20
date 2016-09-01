@@ -71,11 +71,17 @@
       <Primitive path="@nilReason" mapping="place_attr_nilreason" />
       <Primitive path="@xsi:nil" mapping="place_attr_nil" />
     </Complex>
-    <Primitive path="app:osm_timestamp" mapping="osm_timestamp" />
+    <Primitive path="app:osm_timestamp" mapping="osm_timestamp"  >
+      <CustomConverter class="de.latlon.ogctestbed12.sql.converter.UtcTimeConverter"/>
+    </Primitive>
     <Complex path="app:period" >
       <Primitive path="@gml:id" mapping="osm_timestamp_modified_id"/>
-      <Primitive path="gml:beginPosition" mapping="osm_timestamp" type="dateTime" />
-      <Primitive path="gml:endPosition" mapping="osm_timestamp_modified" type="dateTime" />
+      <Primitive path="gml:beginPosition" mapping="osm_timestamp" type="dateTime"  >
+        <CustomConverter class="de.latlon.ogctestbed12.sql.converter.UtcTimeConverter"/>
+      </Primitive>
+      <Primitive path="gml:endPosition" mapping="osm_timestamp_modified" type="dateTime"  >
+        <CustomConverter class="de.latlon.ogctestbed12.sql.converter.UtcTimeConverter"/>
+      </Primitive>
     </Complex>
     <Primitive path="app:way_area" mapping="way_area" />
     <Geometry path="app:geometry" mapping="geometry">
@@ -96,11 +102,17 @@
     <Primitive path="app:leisure" mapping="leisure" />
     <Primitive path="app:name" mapping="name" />
     <Primitive path="app:tourism" mapping="tourism" />
-    <Primitive path="app:osm_timestamp" mapping="osm_timestamp" />
+    <Primitive path="app:osm_timestamp" mapping="osm_timestamp"  >
+      <CustomConverter class="de.latlon.ogctestbed12.sql.converter.UtcTimeConverter"/>
+    </Primitive>
     <Complex path="app:period" >
       <Primitive path="@gml:id" mapping="osm_timestamp_modified_id"/>
-      <Primitive path="gml:beginPosition" mapping="osm_timestamp" type="dateTime" />
-      <Primitive path="gml:endPosition" mapping="osm_timestamp_modified" type="dateTime" />
+      <Primitive path="gml:beginPosition" mapping="osm_timestamp" type="dateTime"  >
+        <CustomConverter class="de.latlon.ogctestbed12.sql.converter.UtcTimeConverter"/>
+      </Primitive>
+      <Primitive path="gml:endPosition" mapping="osm_timestamp_modified" type="dateTime"  >
+        <CustomConverter class="de.latlon.ogctestbed12.sql.converter.UtcTimeConverter"/>
+      </Primitive>
     </Complex>
     <Primitive path="app:way_area" mapping="way_area" />
     <Geometry path="app:geometry" mapping="geometry">
