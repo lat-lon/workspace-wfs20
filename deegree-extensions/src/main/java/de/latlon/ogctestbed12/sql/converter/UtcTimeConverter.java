@@ -1,15 +1,9 @@
 package de.latlon.ogctestbed12.sql.converter;
 
-import org.deegree.commons.tom.datetime.DateTime;
-import org.deegree.commons.tom.datetime.Temporal;
-import org.deegree.commons.tom.datetime.Time;
-import org.deegree.commons.tom.primitive.BaseType;
-import org.deegree.commons.tom.primitive.PrimitiveType;
-import org.deegree.commons.tom.primitive.PrimitiveValue;
-import org.deegree.feature.persistence.sql.SQLFeatureStore;
-import org.deegree.feature.persistence.sql.converter.CustomParticleConverter;
-import org.deegree.feature.persistence.sql.rules.Mapping;
-import org.deegree.feature.persistence.sql.rules.PrimitiveMapping;
+import static org.deegree.commons.tom.datetime.ISO8601Converter.parseDateTime;
+import static org.deegree.commons.tom.datetime.ISO8601Converter.parseTime;
+import static org.deegree.commons.tom.primitive.BaseType.DATE_TIME;
+import static org.deegree.commons.tom.primitive.BaseType.TIME;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,18 +11,26 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
-import static org.deegree.commons.tom.datetime.ISO8601Converter.parseDateTime;
-import static org.deegree.commons.tom.datetime.ISO8601Converter.parseTime;
-import static org.deegree.commons.tom.primitive.BaseType.DATE_TIME;
-import static org.deegree.commons.tom.primitive.BaseType.TIME;
+import org.deegree.commons.tom.datetime.DateTime;
+import org.deegree.commons.tom.datetime.Temporal;
+import org.deegree.commons.tom.datetime.Time;
+import org.deegree.commons.tom.primitive.BaseType;
+import org.deegree.commons.tom.primitive.PrimitiveType;
+import org.deegree.commons.tom.primitive.PrimitiveValue;
+import org.deegree.commons.tom.sql.PrimitiveParticleConverter;
+import org.deegree.feature.persistence.sql.SQLFeatureStore;
+import org.deegree.feature.persistence.sql.converter.CustomParticleConverter;
+import org.deegree.feature.persistence.sql.rules.Mapping;
+import org.deegree.feature.persistence.sql.rules.PrimitiveMapping;
 
 /**
- * {@link CustomParticleConverter} for conversion between {@link PrimitiveValue}s (DateTime and Time) and SQL types with respect to the UTC Time.
- * Currently the UTC Time is only supported by the conversion from SQL value to {@link PrimitiveValue}
+ * {@link CustomParticleConverter} for conversion between {@link PrimitiveValue}s (DateTime and Time) and SQL types with
+ * respect to the UTC Time. Currently the UTC Time is only supported by the conversion from SQL value to
+ * {@link PrimitiveValue}
  *
  * @author <a href="mailto:goltz@lat-lon.de">Lyn Goltz</a>
  */
-public class UtcTimeConverter implements CustomParticleConverter<PrimitiveValue> {
+public class UtcTimeConverter implements CustomParticleConverter<PrimitiveValue>, PrimitiveParticleConverter {
 
     private String column;
 
@@ -74,8 +76,8 @@ public class UtcTimeConverter implements CustomParticleConverter<PrimitiveValue>
         case TIME:
             return toTimeParticle( sqlValue );
         default:
-            throw new UnsupportedOperationException(
-                                    "BaseType " + type.getBaseType() + " is not supported by the UtcTimeConverter." );
+            throw new UnsupportedOperationException( "BaseType " + type.getBaseType()
+                                                     + " is not supported by the UtcTimeConverter." );
         }
     }
 
@@ -87,6 +89,16 @@ public class UtcTimeConverter implements CustomParticleConverter<PrimitiveValue>
             value = toSqlValue( value );
         }
         stmt.setObject( paramIndex, value );
+    }
+
+    @Override
+    public PrimitiveType getType() {
+        return type;
+    }
+
+    @Override
+    public boolean isConcatenated() {
+        return false;
     }
 
     private PrimitiveValue toDateTimeParticle( Object sqlValue ) {
@@ -122,8 +134,8 @@ public class UtcTimeConverter implements CustomParticleConverter<PrimitiveValue>
         case TIME:
             return toSqlTime( input );
         default:
-            throw new UnsupportedOperationException(
-                                    "BaseType " + type.getBaseType() + " is not supported by the UtcTimeConverter." );
+            throw new UnsupportedOperationException( "BaseType " + type.getBaseType()
+                                                     + " is not supported by the UtcTimeConverter." );
         }
     }
 
@@ -173,8 +185,8 @@ public class UtcTimeConverter implements CustomParticleConverter<PrimitiveValue>
     private void checkType( PrimitiveMapping mapping ) {
         BaseType baseType = mapping.getType().getBaseType();
         if ( !DATE_TIME.equals( baseType ) && !TIME.equals( baseType ) )
-            throw new UnsupportedOperationException(
-                                    "BaseType " + baseType + " is not supported by the UtcTimeConverter." );
+            throw new UnsupportedOperationException( "BaseType " + baseType
+                                                     + " is not supported by the UtcTimeConverter." );
     }
 
 }
