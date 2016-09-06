@@ -26,6 +26,10 @@ function createPGVersionFunctions {
   psql -d iceland_dump_base -f pgversion_createFunctions_erweitert.sql
 }
 
+function importGN {
+  psql -d iceland_dump_base -f gns_create_postgis_table.sql
+}
+
 function importOSM {
   osm2pgsql -S ../data/iceland-latest.style --keep-coastlines -x -s -d iceland_dump_base ../data/iceland-latest.osm.pbf
   psql -d iceland_dump_base -f osm_import_to_epsg-4326.sql
@@ -35,7 +39,7 @@ function importOSM {
 }
 
 function createDump {
- pg_dump -t osm_protected_area_seq -t osm_administrative_seq -t osm_protected_area -t osm_administrative iceland_dump_base -f ../data/iceland-latest.dump
+ pg_dump -t osm_protected_area_seq -t osm_administrative_seq -t osm_protected_area -t osm_administrative -t gns_iceland_seq -t gns_iceland iceland_dump_base -f /tmp/iceland-latest.dump
 } 
 
 function dropDB {
@@ -47,6 +51,7 @@ function dropDB {
 ####################
 createDB
 createPGVersionFunctions
+importGN
 importOSM
 createDump
 dropDB
