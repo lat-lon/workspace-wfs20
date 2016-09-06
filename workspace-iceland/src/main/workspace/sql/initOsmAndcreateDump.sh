@@ -17,8 +17,13 @@
 
 function createDB {
   psql -c "CREATE USER deegree WITH PASSWORD 'deegree'"
+  psql -c "CREATE USER version"
   createdb iceland_dump_base
   psql -d iceland_dump_base -c "CREATE EXTENSION postgis;"
+}
+
+function createPGVersionFunctions {
+  psql -d iceland_dump_base -f pgversion_createFunctions_erweitert.sql
 }
 
 function importOSM {
@@ -41,6 +46,7 @@ function dropDB {
 ####  EXECUTION ####
 ####################
 createDB
+createPGVersionFunctions
 importOSM
 createDump
 dropDB
