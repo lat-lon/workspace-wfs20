@@ -38,6 +38,10 @@ function importOSM {
   psql -d iceland_dump_base -f osm_drop_tables.sql
 }
 
+function grantPrivilegesToDeegree {
+  psql -d iceland_dump_base -c "GRANT USAGE ON SCHEMA versions TO deegree;"
+  }
+
 function createDump {
  pg_dump iceland_dump_base -f ../data/iceland-latest.dump
 } 
@@ -53,5 +57,6 @@ createDB
 createPGVersionFunctions
 importGN
 importOSM
+grantPrivilegesToDeegree
 createDump
 dropDB

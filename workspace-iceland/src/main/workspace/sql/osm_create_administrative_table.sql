@@ -15,7 +15,11 @@ ALTER TABLE osm_administrative ADD PRIMARY KEY (id);
 
 SELECT * FROM versions.pgvsinit('public.osm_administrative');
 
-grant all on osm_administrative_version to deegree;
+GRANT ALL ON osm_administrative_version to deegree;
+GRANT ALL ON versions.public_osm_administrative_version_log to deegree;
+GRANT USAGE ON SEQUENCE versions.public_osm_administrative_version_log_version_log_id_seq TO deegree;
+GRANT ALL ON  versions.public_osm_administrative_version_log to deegree;
+
 
 INSERT INTO osm_administrative_version (osm_id, admin_level, name, place, osm_timestamp, way_area, geometry) SELECT osm_id, admin_level, name, place, osm_timestamp::TIMESTAMPTZ, way_area, way FROM planet_osm_polygon where boundary = 'administrative';
 
