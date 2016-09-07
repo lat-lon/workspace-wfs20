@@ -6,11 +6,17 @@
   <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
   <GMLSchema>../../appschemas/iceland.xsd</GMLSchema>
 
-  <FeatureTypeMapping table="gns_iceland" name="app:gns_iceland">
+  <FeatureTypeMapping table="gns_iceland_version" name="app:gns_iceland">
     <FIDMapping prefix="gns_iceland_">
       <Column name="id" type="integer" />
       <SequenceIDGenerator sequence="gns_iceland_seq" />
     </FIDMapping>
+    <VersionMapping>
+      <VersionMetadataTable  name="versions.public_gns_iceland_version_log" />
+      <VersionColumn name="version_log_id" />
+      <ActionColumn name="action" />
+      <TimestampColumn name="systime" />
+    </VersionMapping>
     <Primitive path="gml:description" mapping="gml_description" />
     <Primitive path="gml:identifier" mapping="gml_identifier" />
     <Primitive path="gml:name" mapping="gml_name" />
@@ -55,11 +61,17 @@
     </Geometry>
   </FeatureTypeMapping>
 
-  <FeatureTypeMapping table="osm_administrative" name="app:osm_administrative">
+  <FeatureTypeMapping table="osm_administrative_version" name="app:osm_administrative">
     <FIDMapping prefix="osm_administrative_">
       <Column name="id" type="integer" />
       <SequenceIDGenerator sequence="osm_administrative_seq" />
     </FIDMapping>
+    <VersionMapping>
+      <VersionMetadataTable  name="versions.public_osm_administrative_version_log" />
+      <VersionColumn name="version_log_id" />
+      <ActionColumn name="action" />
+      <TimestampColumn name="systime" />
+    </VersionMapping>
     <Primitive path="gml:description" mapping="gml_description" />
     <Primitive path="gml:identifier" mapping="gml_identifier" />
     <Primitive path="gml:name" mapping="gml_name" />
@@ -89,11 +101,17 @@
     </Geometry>
   </FeatureTypeMapping>
 
-  <FeatureTypeMapping table="osm_protected_area" name="app:osm_protected_area">
+  <FeatureTypeMapping table="osm_protected_area_version" name="app:osm_protected_area">
     <FIDMapping prefix="osm_protected_area_">
       <Column name="id" type="integer" />
       <SequenceIDGenerator sequence="osm_protected_area_seq" />
     </FIDMapping>
+    <VersionMapping>
+      <VersionMetadataTable  name="versions.public_osm_protected_area_version_log" />
+      <VersionColumn name="version_log_id" />
+      <ActionColumn name="action" />
+      <TimestampColumn name="systime" />
+    </VersionMapping>
     <Primitive path="gml:description" mapping="gml_description" />
     <Primitive path="gml:identifier" mapping="gml_identifier" />
     <Primitive path="gml:name" mapping="gml_name" />
