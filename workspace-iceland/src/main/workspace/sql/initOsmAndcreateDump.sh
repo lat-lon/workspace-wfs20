@@ -39,7 +39,7 @@ function importOSM {
 }
 
 function createDump {
- pg_dump iceland_dump_base -f /tmp/iceland-latest.dump
+ pg_dump iceland_dump_base -f ../data/iceland-latest.dump
 } 
 
 function dropDB {
