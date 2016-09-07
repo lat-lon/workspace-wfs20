@@ -17,8 +17,3 @@ GRANT ALL ON osm_protected_area_version to deegree;
 GRANT ALL ON versions.public_osm_protected_area_version_log to deegree;
 GRANT USAGE ON SEQUENCE versions.public_osm_protected_area_version_log_version_log_id_seq TO deegree;
 GRANT ALL ON  versions.public_osm_protected_area_version_log to deegree;
-
-INSERT INTO osm_protected_area_version (osm_id, boundary, leisure, name, tourism, osm_timestamp, way_area, geometry) SELECT osm_id, boundary, leisure, name, tourism, osm_timestamp::TIMESTAMPTZ, way_area, way FROM planet_osm_polygon where boundary in ('protected_area', 'national_park') ;
-
-UPDATE osm_protected_area_version set osm_timestamp_modified_id = 'TP_osm_protected_area_' || id;
-UPDATE osm_protected_area_version set osm_timestamp_modified = cast( osm_timestamp + '1 day'::interval as timestamp);

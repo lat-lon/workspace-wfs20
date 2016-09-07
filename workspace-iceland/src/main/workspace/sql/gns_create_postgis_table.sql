@@ -45,6 +45,7 @@ alter table import add column geometry geometry(POINT, 4326);
 update import set geometry = ST_SetSRID(ST_MakePoint (long,lat), 4326);
 -- here, we could create a subset from the imported GNS data
 DROP TABLE IF EXISTS gns_iceland;
+GRANT SELECT ON import to deegree ;
 create table gns_iceland as select * from import with no data;
 grant all on gns_iceland to deegree ;
 
@@ -62,7 +63,3 @@ GRANT ALL ON gns_iceland_version to deegree ;
 GRANT ALL ON versions.public_gns_iceland_version_log to deegree;
 GRANT USAGE ON SEQUENCE versions.public_gns_iceland_version_log_version_log_id_seq TO deegree;
 GRANT ALL ON  versions.public_gns_iceland_version_log to deegree;
-
-INSERT INTO gns_iceland_version (RC, UFI, UNI, LAT, LONG, DMS_LAT, DMS_LONG, MGRS, JOG, FC, DSG, PC, CC1, ADM1, POP, ELEV, CC2, NT, LC, SHORT_FORM, GENERIC, SORT_NAME_RO, FULL_NAME_RO, FULL_NAME_ND_RO, SORT_NAME_RG, FULL_NAME_RG, FULL_NAME_ND_RG, NOTE, MODIFY_DATE, DISPLAY, NAME_RANK, NAME_LINK, TRANSL_CD, NM_MODIFY_DATE, F_EFCTV_DT, F_TERM_DT, geometry) SELECT RC, UFI, UNI, LAT, LONG, DMS_LAT, DMS_LONG, MGRS, JOG, FC, DSG, PC, CC1, ADM1, POP, ELEV, CC2, NT, LC, SHORT_FORM, GENERIC, SORT_NAME_RO, FULL_NAME_RO, FULL_NAME_ND_RO, SORT_NAME_RG, FULL_NAME_RG, FULL_NAME_ND_RG, NOTE, MODIFY_DATE, DISPLAY, NAME_RANK, NAME_LINK, TRANSL_CD, NM_MODIFY_DATE, F_EFCTV_DT, F_TERM_DT, geometry FROM import;
-
-drop table import;
