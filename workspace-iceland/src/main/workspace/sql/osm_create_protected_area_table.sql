@@ -13,6 +13,8 @@ ALTER TABLE osm_protected_area ADD PRIMARY KEY (id);
 
 SELECT * FROM versions.pgvsinit('public.osm_protected_area');
 
+grant all on osm_protected_area_version to deegree;
+
 INSERT INTO osm_protected_area_version (osm_id, boundary, leisure, name, tourism, osm_timestamp, way_area, geometry) SELECT osm_id, boundary, leisure, name, tourism, osm_timestamp::TIMESTAMPTZ, way_area, way FROM planet_osm_polygon where boundary in ('protected_area', 'national_park') ;
 
 UPDATE osm_protected_area_version set osm_timestamp_modified_id = 'TP_osm_protected_area_' || id;
