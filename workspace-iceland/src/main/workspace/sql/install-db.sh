@@ -16,6 +16,7 @@ function dropDB {
 
 function createDB {
   psql -c "CREATE USER deegree WITH PASSWORD 'deegree'"
+  psql -c "CREATE USER version"
   createdb iceland -O deegree
   psql -d iceland -c "CREATE EXTENSION postgis;"
 }
