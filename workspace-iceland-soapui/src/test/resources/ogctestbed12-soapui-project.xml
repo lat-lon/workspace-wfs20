@@ -3018,7 +3018,7 @@ declare namespace app='http://www.deegree.org/app'
 
 /wfs:FeatureCollection /wfs:member/app:osm_protected_area/gml:name</path><content>Ce n'est pas Vieux-Port de Montréal!</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="809fc428-4b70-4204-ac72-f76dc4d33cbc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="updateSimplePropertyValue" searchProperties="true"><con:settings/><con:testStep type="httprequest" name="Update" id="d73a0ac8-bfde-44fb-9be5-9ed447134857"><con:settings/><con:config method="POST" xsi:type="con:HttpRequest" id="dcccbeb4-ec34-43e8-8a6d-7af0cacbba63" name="Update" postQueryString="false" mediaType="application/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#wfsEndpoint}</con:endpoint><con:request><![CDATA[<wfs:Transaction xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:tns="http://www.deegree.org/app"
   service="WFS" version="2.0.0">
-  <wfs:Update c"tns:osm_protected_area">
+  <wfs:Update typeName="tns:osm_protected_area">
     <wfs:Property>
       <wfs:ValueReference>tns:way_area[1]</wfs:ValueReference>
       <wfs:Value>89156.675</wfs:Value>
