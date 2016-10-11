@@ -3164,7 +3164,7 @@ http://www.opengis.net/fes/2.0 http://schemas.opengis.net/filter/2.0/filter.xsd"
       <wfs:Title>name</wfs:Title>
     </wfs:Parameter>
     <wfs:QueryExpressionText returnFeatureTypes="app:osm_protected_area app:osm_administrative"
-      language="urn:ogc:def:queryLanguage:OGC-:WFSQueryExpression">
+      language="urn:ogc:def:queryLanguage:OGC-WFS::WFSQueryExpression">
 
       <wfs:Query typeNames="app:osm_protected_area">
         <fes:Filter>
