@@ -6,6 +6,14 @@
     <format>zip</format>
   </formats>
   <includeBaseDirectory>false</includeBaseDirectory>
+  <dependencySets>
+    <dependencySet>
+      <includes>
+        <include>de.latlon:deegree-extensions</include>
+      </includes>
+      <outputDirectory>/workspace-iceland/modules</outputDirectory>
+    </dependencySet>
+  </dependencySets>
   <fileSets>
     <fileSet>
       <directory>${basedir}/src/main/workspace</directory>

@@ -8,7 +8,7 @@
   <parent>
     <groupId>de.latlon</groupId>
     <artifactId>workspace-wfs20</artifactId>
-    <version>0.5</version>
+    <version>0.6</version>
   </parent>
 
   <build>
@@ -55,5 +55,13 @@
       </plugin>
     </plugins>
   </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>deegree-extensions</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
 
 </project>

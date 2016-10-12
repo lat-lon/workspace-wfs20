@@ -10,6 +10,7 @@
 
   <EnableTransactions>true</EnableTransactions>
   <EnableResponseBuffering>true</EnableResponseBuffering>
+  <EnableFeatureVersioning>true</EnableFeatureVersioning>
   <EnableResponsePaging>true</EnableResponsePaging>
 
   <QueryCRS>urn:ogc:def:crs:EPSG::4326</QueryCRS>
@@ -19,6 +20,7 @@
     <MimeType>text/xml; subtype=gml/3.2.1</MimeType>
     <MimeType>text/xml; subtype="gml/3.2.1"</MimeType>
     <GetFeatureResponse>
+      <DisableDynamicSchema>true</DisableDynamicSchema> 
       <DisableStreaming>true</DisableStreaming>
     </GetFeatureResponse>
   </GMLFormat>

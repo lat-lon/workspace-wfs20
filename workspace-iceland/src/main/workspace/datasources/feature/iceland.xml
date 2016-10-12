@@ -1,16 +1,22 @@
 <SQLFeatureStore configVersion="3.4.0" xmlns="http://www.deegree.org/datasource/feature/sql"
-  xmlns:app="http://www.deegree.org/app"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.deegree.org/datasource/feature/sql http://schemas.deegree.org/datasource/feature/sql/3.4.0/sql.xsd">
+                 xmlns:app="http://www.deegree.org/app"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.deegree.org/datasource/feature/sql http://schemas.deegree.org/datasource/feature/sql/3.4.0/sql.xsd">
   <JDBCConnId>postgis_local</JDBCConnId>
   <StorageCRS srid="4326" dim="2D">EPSG:4326</StorageCRS>
   <GMLSchema>../../appschemas/iceland.xsd</GMLSchema>
 
-  <FeatureTypeMapping table="gns_iceland" name="app:gns_iceland">
+  <FeatureTypeMapping table="gns_iceland_version" name="app:gns_iceland">
     <FIDMapping prefix="gns_iceland_">
       <Column name="id" type="integer" />
       <SequenceIDGenerator sequence="gns_iceland_seq" />
     </FIDMapping>
+    <VersionMapping>
+      <VersionMetadataTable  name="versions.public_gns_iceland_version_log" />
+      <VersionColumn name="version_log_id" />
+      <ActionColumn name="action" />
+      <TimestampColumn name="systime" />
+    </VersionMapping>
     <Primitive path="gml:description" mapping="gml_description" />
     <Primitive path="gml:identifier" mapping="gml_identifier" />
     <Primitive path="gml:name" mapping="gml_name" />
@@ -55,11 +61,17 @@
     </Geometry>
   </FeatureTypeMapping>
 
-  <FeatureTypeMapping table="osm_administrative" name="app:osm_administrative">
+  <FeatureTypeMapping table="osm_administrative_version" name="app:osm_administrative">
     <FIDMapping prefix="osm_administrative_">
       <Column name="id" type="integer" />
       <SequenceIDGenerator sequence="osm_administrative_seq" />
     </FIDMapping>
+    <VersionMapping>
+      <VersionMetadataTable  name="versions.public_osm_administrative_version_log" />
+      <VersionColumn name="version_log_id" />
+      <ActionColumn name="action" />
+      <TimestampColumn name="systime" />
+    </VersionMapping>
     <Primitive path="gml:description" mapping="gml_description" />
     <Primitive path="gml:identifier" mapping="gml_identifier" />
     <Primitive path="gml:name" mapping="gml_name" />
@@ -71,11 +83,19 @@
       <Primitive path="@nilReason" mapping="place_attr_nilreason" />
       <Primitive path="@xsi:nil" mapping="place_attr_nil" />
     </Complex>
-    <Primitive path="app:osm_timestamp" mapping="osm_timestamp" />
-    <Complex path="app:period" >
-      <Primitive path="@gml:id" mapping="osm_timestamp_modified_id"/>
-      <Primitive path="gml:beginPosition" mapping="osm_timestamp" type="dateTime" />
-      <Primitive path="gml:endPosition" mapping="osm_timestamp_modified" type="dateTime" />
+    <Primitive path="app:osm_timestamp" mapping="osm_timestamp">
+      <CustomConverter class="de.latlon.ogctestbed12.sql.converter.UtcTimeConverter" />
+    </Primitive>
+    <Complex path="app:period">
+      <Complex path="gml:TimePeriod">
+        <Primitive path="@gml:id" mapping="osm_timestamp_modified_id" />
+        <Primitive path="gml:beginPosition" mapping="osm_timestamp" type="dateTime">
+          <CustomConverter class="de.latlon.ogctestbed12.sql.converter.UtcTimeConverter" />
+        </Primitive>
+        <Primitive path="gml:endPosition" mapping="osm_timestamp_modified" type="dateTime">
+          <CustomConverter class="de.latlon.ogctestbed12.sql.converter.UtcTimeConverter" />
+        </Primitive>
+      </Complex>
     </Complex>
     <Primitive path="app:way_area" mapping="way_area" />
     <Geometry path="app:geometry" mapping="geometry">
@@ -83,11 +103,17 @@
     </Geometry>
   </FeatureTypeMapping>
 
-  <FeatureTypeMapping table="osm_protected_area" name="app:osm_protected_area">
+  <FeatureTypeMapping table="osm_protected_area_version" name="app:osm_protected_area">
     <FIDMapping prefix="osm_protected_area_">
       <Column name="id" type="integer" />
       <SequenceIDGenerator sequence="osm_protected_area_seq" />
     </FIDMapping>
+    <VersionMapping>
+      <VersionMetadataTable  name="versions.public_osm_protected_area_version_log" />
+      <VersionColumn name="version_log_id" />
+      <ActionColumn name="action" />
+      <TimestampColumn name="systime" />
+    </VersionMapping>
     <Primitive path="gml:description" mapping="gml_description" />
     <Primitive path="gml:identifier" mapping="gml_identifier" />
     <Primitive path="gml:name" mapping="gml_name" />
@@ -96,11 +122,19 @@
     <Primitive path="app:leisure" mapping="leisure" />
     <Primitive path="app:name" mapping="name" />
     <Primitive path="app:tourism" mapping="tourism" />
-    <Primitive path="app:osm_timestamp" mapping="osm_timestamp" />
-    <Complex path="app:period" >
-      <Primitive path="@gml:id" mapping="osm_timestamp_modified_id"/>
-      <Primitive path="gml:beginPosition" mapping="osm_timestamp" type="dateTime" />
-      <Primitive path="gml:endPosition" mapping="osm_timestamp_modified" type="dateTime" />
+    <Primitive path="app:osm_timestamp" mapping="osm_timestamp">
+      <CustomConverter class="de.latlon.ogctestbed12.sql.converter.UtcTimeConverter" />
+    </Primitive>
+    <Complex path="app:period">
+      <Complex path="gml:TimePeriod">
+        <Primitive path="@gml:id" mapping="osm_timestamp_modified_id" />
+        <Primitive path="gml:beginPosition" mapping="osm_timestamp" type="dateTime">
+          <CustomConverter class="de.latlon.ogctestbed12.sql.converter.UtcTimeConverter" />
+        </Primitive>
+        <Primitive path="gml:endPosition" mapping="osm_timestamp_modified" type="dateTime">
+          <CustomConverter class="de.latlon.ogctestbed12.sql.converter.UtcTimeConverter" />
+        </Primitive>
+      </Complex>
     </Complex>
     <Primitive path="app:way_area" mapping="way_area" />
     <Geometry path="app:geometry" mapping="geometry">

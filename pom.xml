@@ -4,20 +4,21 @@
   <groupId>de.latlon</groupId>
   <artifactId>workspace-wfs20</artifactId>
   <packaging>pom</packaging>
-  <version>0.5</version>
+  <version>0.6</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <buildTimestamp>${maven.build.timestamp}</buildTimestamp>
     <sonar.host.url>http://vento.lat-lon:9000</sonar.host.url>
     <sonar.jdbc.url>jdbc:postgresql://habub/sonar</sonar.jdbc.url>
+    <deegree.version>3.4-RC2-ogctestbed12-0.6</deegree.version>
   </properties>
 
   <scm>
     <connection>scm:git:git@github.com:lat-lon/workspace-wfs20.git</connection>
     <developerConnection>scm:git:git@github.com:lat-lon/workspace-wfs20.git</developerConnection>
     <url>https://github.com/lat-lon/workspace-wfs20</url>
-    <tag>workspace-wfs20-0.5</tag>
+    <tag>workspace-wfs20-0.6</tag>
   </scm>
 
   <repositories>
@@ -163,12 +164,31 @@
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>org.deegree</groupId>
+        <artifactId>deegree-featurestore-sql</artifactId>
+        <version>${deegree.version}</version>
+      </dependency>
+      <!-- test dependencies -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>1.10.19</version>
+        <scope>test</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
   <modules>
     <module>workspace-iceland</module>
     <module>workspace-iceland-soapui</module>
+    <module>deegree-extensions</module>
   </modules>
 
 </project>
