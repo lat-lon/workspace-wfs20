@@ -3755,11 +3755,11 @@ declare namespace app='http://www.deegree.org/app'
 declare namespace gml='http://www.opengis.net/gml/3.2'
 declare namespace app='http://www.deegree.org/app'
 
-count(/wfs:FeatureCollection/wfs:member)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="5744e76b-d41d-4200-b6d4-2ab34577cf7c" name="state is superseeded"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+count(/wfs:FeatureCollection/wfs:member)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="5744e76b-d41d-4200-b6d4-2ab34577cf7c" name="state is superseded"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace gml='http://www.opengis.net/gml/3.2'
 declare namespace app='http://www.deegree.org/app'
 
-/wfs:FeatureCollection/wfs:member/@state</path><content>valid</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="ba2e793c-9000-466f-81c8-a89aba7c0612" name="matching rid"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
+/wfs:FeatureCollection/wfs:member/@state</path><content>superseded</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="ba2e793c-9000-466f-81c8-a89aba7c0612" name="matching rid"><con:configuration><path>declare namespace wfs='http://www.opengis.net/wfs/2.0'
 declare namespace gml='http://www.opengis.net/gml/3.2'
 declare namespace app='http://www.deegree.org/app'
 
