@@ -17,3 +17,24 @@ GRANT ALL ON osm_protected_area_version to deegree;
 GRANT ALL ON versions.public_osm_protected_area_version_log to deegree;
 GRANT USAGE ON SEQUENCE versions.public_osm_protected_area_version_log_version_log_id_seq TO deegree;
 GRANT ALL ON  versions.public_osm_protected_area_version_log to deegree;
+
+CREATE OR REPLACE RULE insert AS
+    ON INSERT TO osm_protected_area_version DO INSTEAD  INSERT INTO versions.public_osm_protected_area_version_log (id, osm_id, boundary, leisure, name, tourism, osm_timestamp, way_area, geometry, gml_description, gml_identifier, gml_name, osm_timestamp_modified_id, osm_timestamp_modified, action)
+  VALUES (new.id, new.osm_id, new.boundary, new.leisure, new.name, new.tourism, new.osm_timestamp, new.way_area, new.geometry, new.gml_description, new.gml_identifier, new.gml_name, new.osm_timestamp_modified_id, new.osm_timestamp_modified, 'insert'::character varying)
+  RETURNING public_osm_protected_area_version_log.id,
+    public_osm_protected_area_version_log.osm_id,
+    public_osm_protected_area_version_log.boundary,
+    public_osm_protected_area_version_log.leisure,
+    public_osm_protected_area_version_log.name,
+    public_osm_protected_area_version_log.tourism,
+    public_osm_protected_area_version_log.osm_timestamp,
+    public_osm_protected_area_version_log.way_area,
+    public_osm_protected_area_version_log.geometry,
+    public_osm_protected_area_version_log.gml_description,
+    public_osm_protected_area_version_log.gml_identifier,
+    public_osm_protected_area_version_log.gml_name,
+    public_osm_protected_area_version_log.osm_timestamp_modified_id,
+    public_osm_protected_area_version_log.osm_timestamp_modified,
+    public_osm_protected_area_version_log.version_log_id,
+    public_osm_protected_area_version_log.action,
+    to_timestamp((public_osm_protected_area_version_log.systime / 1000)::double precision) AS to_timestamp;
