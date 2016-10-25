@@ -4,7 +4,7 @@
   <groupId>de.latlon</groupId>
   <artifactId>workspace-wfs20</artifactId>
   <packaging>pom</packaging>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,7 +18,7 @@
     <connection>scm:git:git@github.com:lat-lon/workspace-wfs20.git</connection>
     <developerConnection>scm:git:git@github.com:lat-lon/workspace-wfs20.git</developerConnection>
     <url>https://github.com/lat-lon/workspace-wfs20</url>
-    <tag>workspace-wfs20-1.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <repositories>
