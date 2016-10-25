@@ -4,21 +4,21 @@
   <groupId>de.latlon</groupId>
   <artifactId>workspace-wfs20</artifactId>
   <packaging>pom</packaging>
-  <version>0.6</version>
+  <version>1.0</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <buildTimestamp>${maven.build.timestamp}</buildTimestamp>
     <sonar.host.url>http://vento.lat-lon:9000</sonar.host.url>
     <sonar.jdbc.url>jdbc:postgresql://habub/sonar</sonar.jdbc.url>
-    <deegree.version>3.4-RC2-ogctestbed12-0.6</deegree.version>
+    <deegree.version>3.4-RC3-ogctestbed12-1.0</deegree.version>
   </properties>
 
   <scm>
     <connection>scm:git:git@github.com:lat-lon/workspace-wfs20.git</connection>
     <developerConnection>scm:git:git@github.com:lat-lon/workspace-wfs20.git</developerConnection>
     <url>https://github.com/lat-lon/workspace-wfs20</url>
-    <tag>workspace-wfs20-0.6</tag>
+    <tag>workspace-wfs20-1.0</tag>
   </scm>
 
   <repositories>
