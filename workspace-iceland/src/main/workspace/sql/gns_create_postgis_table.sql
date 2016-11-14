@@ -54,6 +54,7 @@ grant all on gns_iceland_seq to deegree ;
 alter table gns_iceland add column id integer default nextval('gns_iceland_seq');
 ALTER TABLE gns_iceland ADD COLUMN gml_description varchar;
 ALTER TABLE gns_iceland ADD COLUMN gml_identifier varchar;
+ALTER TABLE gns_iceland ADD COLUMN gml_identifier_codespace varchar;
 ALTER TABLE gns_iceland ADD COLUMN gml_name varchar;
 ALTER TABLE gns_iceland ADD PRIMARY KEY (id);
 
@@ -65,8 +66,8 @@ GRANT USAGE ON SEQUENCE versions.public_gns_iceland_version_log_version_log_id_s
 GRANT ALL ON  versions.public_gns_iceland_version_log to deegree;
 
 CREATE OR REPLACE RULE insert AS
-    ON INSERT TO gns_iceland_version DO INSTEAD  INSERT INTO versions.public_gns_iceland_version_log (id, rc, ufi, uni, lat, long, dms_lat, dms_long, mgrs, jog, fc, dsg, pc, cc1, adm1, pop, elev, cc2, nt, lc, short_form, generic, sort_name_ro, full_name_ro, full_name_nd_ro, sort_name_rg, full_name_rg, full_name_nd_rg, note, modify_date, display, name_rank, name_link, transl_cd, nm_modify_date, f_efctv_dt, f_term_dt, geometry, gml_description, gml_identifier, gml_name, action)
-  VALUES (new.id, new.rc, new.ufi, new.uni, new.lat, new.long, new.dms_lat, new.dms_long, new.mgrs, new.jog, new.fc, new.dsg, new.pc, new.cc1, new.adm1, new.pop, new.elev, new.cc2, new.nt, new.lc, new.short_form, new.generic, new.sort_name_ro, new.full_name_ro, new.full_name_nd_ro, new.sort_name_rg, new.full_name_rg, new.full_name_nd_rg, new.note, new.modify_date, new.display, new.name_rank, new.name_link, new.transl_cd, new.nm_modify_date, new.f_efctv_dt, new.f_term_dt, new.geometry, new.gml_description, new.gml_identifier, new.gml_name, 'insert'::character varying)
+    ON INSERT TO gns_iceland_version DO INSTEAD  INSERT INTO versions.public_gns_iceland_version_log (id, rc, ufi, uni, lat, long, dms_lat, dms_long, mgrs, jog, fc, dsg, pc, cc1, adm1, pop, elev, cc2, nt, lc, short_form, generic, sort_name_ro, full_name_ro, full_name_nd_ro, sort_name_rg, full_name_rg, full_name_nd_rg, note, modify_date, display, name_rank, name_link, transl_cd, nm_modify_date, f_efctv_dt, f_term_dt, geometry, gml_description, gml_identifier, gml_identifier_codespace, gml_name, action)
+  VALUES (new.id, new.rc, new.ufi, new.uni, new.lat, new.long, new.dms_lat, new.dms_long, new.mgrs, new.jog, new.fc, new.dsg, new.pc, new.cc1, new.adm1, new.pop, new.elev, new.cc2, new.nt, new.lc, new.short_form, new.generic, new.sort_name_ro, new.full_name_ro, new.full_name_nd_ro, new.sort_name_rg, new.full_name_rg, new.full_name_nd_rg, new.note, new.modify_date, new.display, new.name_rank, new.name_link, new.transl_cd, new.nm_modify_date, new.f_efctv_dt, new.f_term_dt, new.geometry, new.gml_description, new.gml_identifier, new.gml_identifier_codespace, new.gml_name, 'insert'::character varying)
   RETURNING public_gns_iceland_version_log.id,
     public_gns_iceland_version_log.rc,
     public_gns_iceland_version_log.ufi,
@@ -107,6 +108,7 @@ CREATE OR REPLACE RULE insert AS
     public_gns_iceland_version_log.geometry,
     public_gns_iceland_version_log.gml_description,
     public_gns_iceland_version_log.gml_identifier,
+    public_gns_iceland_version_log.gml_identifier_codespace,
     public_gns_iceland_version_log.gml_name,
     public_gns_iceland_version_log.version_log_id,
     public_gns_iceland_version_log.action,

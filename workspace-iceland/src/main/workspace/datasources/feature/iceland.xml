@@ -18,7 +18,10 @@
       <TimestampColumn name="systime" />
     </VersionMapping>
     <Primitive path="gml:description" mapping="gml_description" />
-    <Primitive path="gml:identifier" mapping="gml_identifier" />
+    <Complex path="gml:identifier">
+      <Primitive path="text()" mapping="gml_identifier" />
+      <Primitive path="@codeSpace" mapping="gml_identifier_codespace" />
+    </Complex>
     <Primitive path="gml:name" mapping="gml_name" />
     <Primitive path="app:rc" mapping="rc" />
     <Primitive path="app:ufi" mapping="ufi" />
@@ -73,7 +76,10 @@
       <TimestampColumn name="systime" />
     </VersionMapping>
     <Primitive path="gml:description" mapping="gml_description" />
-    <Primitive path="gml:identifier" mapping="gml_identifier" />
+    <Complex path="gml:identifier">
+      <Primitive path="text()" mapping="gml_identifier" />
+      <Primitive path="@codeSpace" mapping="gml_identifier_codespace" />
+    </Complex>
     <Primitive path="gml:name" mapping="gml_name" />
     <Primitive path="app:osm_id" mapping="osm_id" />
     <Primitive path="app:admin_level" mapping="admin_level" />
@@ -115,7 +121,10 @@
       <TimestampColumn name="systime" />
     </VersionMapping>
     <Primitive path="gml:description" mapping="gml_description" />
-    <Primitive path="gml:identifier" mapping="gml_identifier" />
+    <Complex path="gml:identifier">
+      <Primitive path="text()" mapping="gml_identifier" />
+      <Primitive path="@codeSpace" mapping="gml_identifier_codespace" />
+    </Complex>
     <Primitive path="gml:name" mapping="gml_name" />
     <Primitive path="app:osm_id" mapping="osm_id" />
     <Primitive path="app:boundary" mapping="boundary" />
