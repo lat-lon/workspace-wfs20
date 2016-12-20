@@ -8,7 +8,7 @@
   <parent>
     <groupId>de.latlon</groupId>
     <artifactId>workspace-wfs20</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
   </parent>
 
   <build>
