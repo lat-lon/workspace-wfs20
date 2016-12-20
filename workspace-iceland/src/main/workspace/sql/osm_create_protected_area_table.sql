@@ -6,6 +6,7 @@ grant all on osm_protected_area_seq to deegree;
 alter table osm_protected_area add column id integer default nextval('osm_protected_area_seq');
 ALTER TABLE osm_protected_area ADD COLUMN gml_description varchar;
 ALTER TABLE osm_protected_area ADD COLUMN gml_identifier varchar;
+ALTER TABLE osm_protected_area ADD COLUMN gml_identifier_codespace varchar;
 ALTER TABLE osm_protected_area ADD COLUMN gml_name varchar;
 ALTER TABLE osm_protected_area ADD COLUMN osm_timestamp_modified_id varchar;
 ALTER TABLE osm_protected_area ADD COLUMN osm_timestamp_modified timestamptz;
@@ -19,8 +20,8 @@ GRANT USAGE ON SEQUENCE versions.public_osm_protected_area_version_log_version_l
 GRANT ALL ON  versions.public_osm_protected_area_version_log to deegree;
 
 CREATE OR REPLACE RULE insert AS
-    ON INSERT TO osm_protected_area_version DO INSTEAD  INSERT INTO versions.public_osm_protected_area_version_log (id, osm_id, boundary, leisure, name, tourism, osm_timestamp, way_area, geometry, gml_description, gml_identifier, gml_name, osm_timestamp_modified_id, osm_timestamp_modified, action)
-  VALUES (new.id, new.osm_id, new.boundary, new.leisure, new.name, new.tourism, new.osm_timestamp, new.way_area, new.geometry, new.gml_description, new.gml_identifier, new.gml_name, new.osm_timestamp_modified_id, new.osm_timestamp_modified, 'insert'::character varying)
+    ON INSERT TO osm_protected_area_version DO INSTEAD  INSERT INTO versions.public_osm_protected_area_version_log (id, osm_id, boundary, leisure, name, tourism, osm_timestamp, way_area, geometry, gml_description, gml_identifier, gml_identifier_codespace, gml_name, osm_timestamp_modified_id, osm_timestamp_modified, action)
+  VALUES (new.id, new.osm_id, new.boundary, new.leisure, new.name, new.tourism, new.osm_timestamp, new.way_area, new.geometry, new.gml_description, new.gml_identifier, new.gml_identifier_codespace, new.gml_name, new.osm_timestamp_modified_id, new.osm_timestamp_modified, 'insert'::character varying)
   RETURNING public_osm_protected_area_version_log.id,
     public_osm_protected_area_version_log.osm_id,
     public_osm_protected_area_version_log.boundary,
@@ -32,6 +33,7 @@ CREATE OR REPLACE RULE insert AS
     public_osm_protected_area_version_log.geometry,
     public_osm_protected_area_version_log.gml_description,
     public_osm_protected_area_version_log.gml_identifier,
+    public_osm_protected_area_version_log.gml_identifier_codespace,
     public_osm_protected_area_version_log.gml_name,
     public_osm_protected_area_version_log.osm_timestamp_modified_id,
     public_osm_protected_area_version_log.osm_timestamp_modified,
