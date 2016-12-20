@@ -11,7 +11,7 @@
     <buildTimestamp>${maven.build.timestamp}</buildTimestamp>
     <sonar.host.url>http://vento.lat-lon:9000</sonar.host.url>
     <sonar.jdbc.url>jdbc:postgresql://habub/sonar</sonar.jdbc.url>
-    <deegree.version>3.4-RC3-ogctestbed12-1.0</deegree.version>
+    <deegree.version>3.4-RC3-ogctestbed12-1.1</deegree.version>
   </properties>
 
   <scm>
